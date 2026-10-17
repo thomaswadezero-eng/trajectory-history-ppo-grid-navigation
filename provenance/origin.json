@@ -1,0 +1,10 @@
+{
+  "historical_frozen_manifest_sha256": "A7D845D826253B4F5DE76E01E1E046577EDE2E1BEE789E17C7920E4343CF8E67",
+  "historical_records": 159,
+  "included_frozen_reference_files": 109,
+  "source_snapshot_scope": "SELECTED_POSSIBLY_PATH_REDACTED_COPIES",
+  "original_full_integrity_gate": "NOT_SATISFIED_BY_THIS_PUBLIC_SUBSET",
+  "redaction_rule": "Literal local root/home prefixes become redacted_local_root or redacted_user_home. These are privacy labels, not configured runtime paths. Python non-path AST and research JSON numerical/settings values are unchanged. Original scientific hash gates remain unsatisfied, not bypassed.",
+  "scientific_execution": "NOT_PERFORMED",
+  "third_party_tasks": "WITHHELD"
+}

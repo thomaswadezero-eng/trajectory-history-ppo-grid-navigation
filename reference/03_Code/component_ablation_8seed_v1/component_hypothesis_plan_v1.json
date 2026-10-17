@@ -1,0 +1,49 @@
+{
+  "schema_version": "component_ablation_8seed_hypothesis_plan.v2",
+  "status": "FROZEN_BEFORE_NEW_FORMAL_RESULTS",
+  "frozen_at": "2026-09-18",
+  "m3_family_correction_at": "2026-09-18",
+  "provenance": {
+    "source_plan": "03_Code/final_two_factor_experiment_v7_8seed/significance_plan.json",
+    "source_plan_sha256": "FDACCBA34368184DFDDC1A6044F280D1CB4064775B689E46A98B19872E57DB49",
+    "source_family": "H1 PPO vs PPO+Reward",
+    "reason": "Each leave-one-out run tests loss of one Dynamic Reward component against the complete PPO+Reward reference; the metric family is copied from the already frozen Dynamic Reward H1 family."
+  },
+  "experimental_unit": "independently trained policy identified by paired random seed",
+  "seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "reference_method": "PPO_Reward",
+  "test": "two-sided paired Wilcoxon signed-rank test",
+  "alternative": "two-sided",
+  "alpha": 0.05,
+  "wilcoxon_zero_method": "wilcox",
+  "wilcoxon_method": "auto",
+  "family_id": "COMPONENT_ABLATION_12_HYPOTHESES",
+  "hypothesis_count": 12,
+  "family_definition": "Four predefined leave-one-out comparisons crossed with three predefined primary metrics form one component-ablation hypothesis family.",
+  "hypothesis_order": [
+    "C_PROGRESS__SUCCESS_RATE", "C_PROGRESS__SPL", "C_PROGRESS__TIMEOUT_RATE",
+    "C_REVISIT__SUCCESS_RATE", "C_REVISIT__SPL", "C_REVISIT__TIMEOUT_RATE",
+    "C_OSCILLATION__SUCCESS_RATE", "C_OSCILLATION__SPL", "C_OSCILLATION__TIMEOUT_RATE",
+    "C_STAGNATION__SUCCESS_RATE", "C_STAGNATION__SPL", "C_STAGNATION__TIMEOUT_RATE"
+  ],
+  "multiple_comparison_correction": "One Holm correction jointly across all 12 raw two-sided paired Wilcoxon p-values in the predefined component-ablation family",
+  "effect_size": "paired rank-biserial correlation on benefit-oriented differences",
+  "bootstrap": {
+    "confidence_level": 0.95,
+    "statistic": "paired mean benefit-oriented difference",
+    "replicates": 100000,
+    "analysis_seed": 20260828
+  },
+  "metric_directions": {
+    "success_rate": "higher_is_better",
+    "spl": "higher_is_better",
+    "timeout_rate": "lower_is_better"
+  },
+  "comparisons": [
+    {"hypothesis": "C_PROGRESS", "comparison": "w/o Progress vs PPO+Reward", "method_a": "REWARD_WO_PROGRESS", "method_b": "PPO_Reward", "primary_metrics": ["success_rate", "spl", "timeout_rate"]},
+    {"hypothesis": "C_REVISIT", "comparison": "w/o Revisit vs PPO+Reward", "method_a": "REWARD_WO_REVISIT", "method_b": "PPO_Reward", "primary_metrics": ["success_rate", "spl", "timeout_rate"]},
+    {"hypothesis": "C_OSCILLATION", "comparison": "w/o Oscillation vs PPO+Reward", "method_a": "REWARD_WO_OSCILLATION", "method_b": "PPO_Reward", "primary_metrics": ["success_rate", "spl", "timeout_rate"]},
+    {"hypothesis": "C_STAGNATION", "comparison": "w/o Stagnation vs PPO+Reward", "method_a": "REWARD_WO_STAGNATION", "method_b": "PPO_Reward", "primary_metrics": ["success_rate", "spl", "timeout_rate"]}
+  ],
+  "descriptive_metrics_not_added_to_inferential_family": ["path_efficiency", "average_steps", "average_path_length", "collision_rate", "episode_reward"]
+}

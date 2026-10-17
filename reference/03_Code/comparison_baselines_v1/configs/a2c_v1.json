@@ -1,0 +1,37 @@
+{
+  "schema_version": "comparison_baselines.method_config.v1",
+  "status": "FROZEN_BEFORE_FORMAL_RUNS",
+  "method": "A2C",
+  "algorithm_definition": "Synchronous on-policy advantage actor-critic with one update per complete rollout",
+  "network_head": "separate_actor_256_128_4_and_critic_256_128_1",
+  "algorithm": {
+    "optimizer": "PyTorch_RMSprop",
+    "learning_rate": 0.0007,
+    "learning_rate_schedule": "linear_to_near_zero_by_pre_update_interaction",
+    "rmsprop_alpha": 0.99,
+    "rmsprop_eps": 0.00001,
+    "gamma": 0.99,
+    "gae_lambda": 1.0,
+    "return_definition": "five_step_bootstrapped_return_equivalent_to_GAE_lambda_1",
+    "synchronous_environments": 16,
+    "rollout_steps_per_environment": 5,
+    "interactions_per_update": 80,
+    "updates_per_rollout": 1,
+    "minibatches": 1,
+    "repeated_epochs": 1,
+    "entropy_coefficient": 0.01,
+    "value_loss_coefficient": 0.5,
+    "max_gradient_norm": 0.5,
+    "advantage_normalization": false,
+    "replay_buffer": false,
+    "ppo_clipping": false
+  },
+  "innovation_isolation": {
+    "dynamic_reward": false,
+    "astar_planning_prior": false,
+    "planning_head": false,
+    "curriculum": false,
+    "imitation_or_demonstration": false
+  }
+}
+

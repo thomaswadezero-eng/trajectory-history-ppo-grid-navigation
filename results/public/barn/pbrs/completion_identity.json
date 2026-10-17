@@ -1,0 +1,71 @@
+{
+  "status": {
+    "schema_version": "pbrs_batch_status.v1",
+    "updated_at": "2026-09-18T15:41:14",
+    "official_seeds": [
+      42,
+      1004,
+      6010,
+      68882,
+      19816,
+      74494,
+      81399,
+      31524
+    ],
+    "actual_n": 8,
+    "planned_n": 8,
+    "statuses": {
+      "42": "DONE",
+      "1004": "DONE",
+      "6010": "DONE",
+      "19816": "DONE",
+      "31524": "DONE",
+      "68882": "DONE",
+      "74494": "DONE",
+      "81399": "DONE"
+    },
+    "all_eight_completed": true
+  },
+  "manifest": {
+    "schema_version": "pbrs_batch_manifest.v1",
+    "program_sha256": "CF572A044500C4A9AD2B6BAB2C83EDF16731F9D4A15CB526EB50BD8F7499E83F",
+    "config_sha256": "50BB85A38907EBD0358253A54A0D710C0CC7F8CB0B63FB994013C36DA828B192",
+    "protocol_sha256": "961CFA0BEC19D8859FEA26FF45A1509B4ECD199636FD04061EC1F860A4196EE8",
+    "input_sha256": {
+      "training_tasks": "D29146F90A9B73749B1FADAA0E563618E547A817422EB7A5D9D2A6F18DAFDBF5",
+      "validation_tasks": "AAC69C346AEEFB3FDD27E8576493A60D30CFB0989CA23634750D7118D417194B",
+      "test_tasks": "CC3C33B00772F8D1B6314FFADC94F8B7D5B86230C1BF445C5C6BCF15570E8397",
+      "map_split": "637792B5F70F086AD534E3CAE70C03F2640EE402C8F8D09B16979E1910C4EBB1",
+      "task_split": "268A76CF6D4BD2AC6A2BA6CFB6B281527326F06D0B0BA148BAD453D90414F693"
+    },
+    "batch_runner_sha256": "B5D8153CF22DD10C5B794830E3B05B849BE9FEEB0A2C19D68A1AC422AA707362",
+    "official_seeds": [
+      42,
+      1004,
+      6010,
+      68882,
+      19816,
+      74494,
+      81399,
+      31524
+    ],
+    "actual_n": 8,
+    "result_files": {
+      "42": "evidence-path:0195",
+      "1004": "evidence-path:0196",
+      "6010": "evidence-path:0197",
+      "19816": "evidence-path:0198",
+      "31524": "evidence-path:0199",
+      "68882": "evidence-path:0200",
+      "74494": "evidence-path:0201",
+      "81399": "evidence-path:0202"
+    },
+    "aggregate_files": [
+      "evidence-path:0203",
+      "evidence-path:0204",
+      "evidence-path:0205"
+    ]
+  },
+  "individual_result_and_checkpoint_files_read_this_phase": false,
+  "formal_inference": "NOT_PERFORMED"
+}

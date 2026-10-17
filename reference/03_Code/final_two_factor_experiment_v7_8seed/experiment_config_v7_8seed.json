@@ -1,0 +1,193 @@
+{
+  "schema_version": "final_two_factor_experiment.v7",
+  "status": "FROZEN_AND_AUTHORIZED",
+  "formal_execution_allowed": true,
+  "config_sha256_rule": "SHA-256 of exact UTF-8 bytes with only config_sha256 replaced by 64 ASCII zero characters",
+  "config_sha256": "A1B343EE2D5FA67D09D0D1D4119261DB045BD892A5A231F1E534399C2C86B5B0",
+  "authorized_program": "03_Code/final_two_factor_experiment_v7_8seed/final_two_factor_experiment_v7_8seed.py",
+  "authorized_program_sha256": "19290D3A23DCC8E10FD4264EF9D8A3FEC4A691CFFD8A69C6FDEE8DE65C8EF8DD",
+  "output_root": "redacted_local_root\\final_two_factor_experiment_v7",
+  "official_seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "random_streams": {
+    "training_task_seed_offset": 104729,
+    "astar_query_seed_offset": 130363
+  },
+  "configurations": {
+    "PPO": {"astar_supervision": false, "dynamic_reward": false},
+    "PPO_Astar": {"astar_supervision": true, "dynamic_reward": false},
+    "PPO_Reward": {"astar_supervision": false, "dynamic_reward": true},
+    "FULL": {"astar_supervision": true, "dynamic_reward": true}
+  },
+  "fairness_constraints": {
+    "shared_inputs": true,
+    "shared_network": true,
+    "shared_ppo": true,
+    "shared_interaction_budget": true,
+    "shared_seeds": true,
+    "only_factor_switches": ["astar_supervision", "dynamic_reward"],
+    "test_parameter_updates": 0,
+    "validation_astar_runtime_calls": 0,
+    "test_astar_runtime_calls": 0
+  },
+  "inputs": {
+    "training_tasks": {
+      "path": "03_Code/training_tasks_v2.json",
+      "sha256": "D29146F90A9B73749B1FADAA0E563618E547A817422EB7A5D9D2A6F18DAFDBF5"
+    },
+    "validation_tasks": {
+      "path": "03_Code/validation_tasks_v2.json",
+      "sha256": "AAC69C346AEEFB3FDD27E8576493A60D30CFB0989CA23634750D7118D417194B"
+    },
+    "test_tasks": {
+      "path": "03_Code/test_tasks_v9_unseen_final.json",
+      "sha256": "CC3C33B00772F8D1B6314FFADC94F8B7D5B86230C1BF445C5C6BCF15570E8397"
+    },
+    "map_split": {
+      "path": "03_Code/final_two_factor_experiment_v7/map_split.json",
+      "sha256": "637792B5F70F086AD534E3CAE70C03F2640EE402C8F8D09B16979E1910C4EBB1"
+    },
+    "task_split": {
+      "path": "03_Code/final_two_factor_experiment_v7/task_split.json",
+      "sha256": "268A76CF6D4BD2AC6A2BA6CFB6B281527326F06D0B0BA148BAD453D90414F693"
+    }
+  },
+  "environment": {
+    "map_size": 30,
+    "action_count": 4,
+    "move_deltas": [[-1, 0], [1, 0], [0, -1], [0, 1]],
+    "max_steps": 180,
+    "occupancy_free_value": 0,
+    "occupancy_obstacle_value": 1,
+    "action_mask_enabled_for_all_configurations": true
+  },
+  "state": {
+    "spatial_channels": ["occupancy", "position", "goal", "cumulative_visit", "recent_trace"],
+    "spatial_shape": [5, 30, 30],
+    "history_order": ["normalized_timestep", "normalized_no_progress", "previous_action_0", "previous_action_1", "previous_action_2", "previous_action_3", "neighbor_visit_0", "neighbor_visit_1", "neighbor_visit_2", "neighbor_visit_3"],
+    "history_size": 10,
+    "visit_count_clip": 10,
+    "recent_trace_decay": 0.85,
+    "no_progress_counter_clip": 20,
+    "minimum_progress_epsilon": 0.000001
+  },
+  "network": {
+    "spatial_input_shape": [5, 30, 30],
+    "convolutions": [
+      {"in_channels": 5, "out_channels": 32, "kernel_size": 3, "stride": 1, "padding": 1},
+      {"in_channels": 32, "out_channels": 64, "kernel_size": 3, "stride": 2, "padding": 1},
+      {"in_channels": 64, "out_channels": 64, "kernel_size": 3, "stride": 2, "padding": 1}
+    ],
+    "adaptive_pool": [4, 4],
+    "spatial_projection": [1024, 256],
+    "history_mlp": [10, 64, 64],
+    "fusion": [320, 256],
+    "actor_head": [256, 128, 4],
+    "critic_head": [256, 128, 1],
+    "planning_head": [256, 128, 4],
+    "planning_head_instantiated_for_all_configurations": true,
+    "activation": "ReLU",
+    "fusion_normalization": "LayerNorm",
+    "weight_initialization": "pytorch_default",
+    "recurrent_layers": false,
+    "batch_normalization": false,
+    "dropout": false
+  },
+  "ppo": {
+    "optimizer": "Adam",
+    "learning_rate": 0.0002,
+    "weight_decay": 0.00001,
+    "adam_betas": [0.9, 0.999],
+    "adam_eps": 0.00000001,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_epsilon": 0.2,
+    "epochs": 3,
+    "rollout_size": 2048,
+    "minibatch_size": 2048,
+    "value_coefficient": 0.5,
+    "entropy_initial": 0.02,
+    "entropy_minimum": 0.002,
+    "entropy_decay": 0.995,
+    "advantage_clip": 5.0,
+    "max_gradient_norm": 0.5,
+    "advantage_normalization": true,
+    "advantage_normalization_epsilon": 0.00000001,
+    "critic_loss": "mean_squared_error",
+    "clipped_objective": true
+  },
+  "reward": {
+    "base": {
+      "goal": 1.0,
+      "collision": -0.2,
+      "timeout": -0.2,
+      "step": -0.002
+    },
+    "dynamic": {
+      "distance_metric": "euclidean",
+      "distance_normalization": "grid_diagonal",
+      "distance_weight": 1.0,
+      "distance_progress_clip": 0.05,
+      "revisit_weight": 0.004,
+      "oscillation_weight": 0.008,
+      "stagnation_weight": 0.004,
+      "oscillation_lookback_steps": [2, 4],
+      "escape_threshold": 14,
+      "escape_minimum_progress": 0.000001,
+      "accounting_tolerance": 0.0000001,
+      "uses_astar_information": false
+    }
+  },
+  "astar": {
+    "training_only": true,
+    "expert_action_injection": false,
+    "action_imitation_loss_enabled": false,
+    "anchor_rehearsal_enabled": false,
+    "modifies_reward": false,
+    "modifies_ppo_advantage": false,
+    "integration": "soft_planning_auxiliary_loss",
+    "planner": "four_neighbor_unit_cost_manhattan",
+    "planning_cost_normalization": "min(shortest_path_length_after_action/max_steps,1.0)",
+    "soft_target_temperature": 0.1,
+    "astar_distill_weight": 0.25,
+    "planning_loss_weight": 1.0,
+    "maximum_auxiliary_weight": 0.5,
+    "planning_huber_delta": 1.0,
+    "unreachable_successor_cost_cap": 1.0,
+    "loss_ratio_epsilon": 0.000000000001,
+    "distillation_schedule": {
+      "clock": "executed_training_interaction_count",
+      "reference_interactions": 900000,
+      "constant_until_fraction": 0.1,
+      "zero_after_fraction": 0.3,
+      "transition": "cosine_decay"
+    },
+    "astar_guidance_schedule": {
+      "clock": "executed_training_interaction_count",
+      "reference_interactions": 900000,
+      "constant_until_fraction": 0.3,
+      "zero_after_fraction": 0.5,
+      "transition": "cosine_decay"
+    },
+    "cache_capacity": 16384,
+    "validation_runtime_calls": 0,
+    "test_runtime_calls": 0
+  },
+  "training": {
+    "interaction_budget": 900000,
+    "task_sampling": "uniform_over_all_frozen_training_tasks",
+    "validation_interval_interactions": 100000,
+    "checkpoint_selection_split": "validation",
+    "checkpoint_ranking": ["success_rate_desc", "spl_desc", "timeout_rate_asc", "average_steps_asc", "interaction_count_asc"],
+    "resume_from_external_checkpoint": false,
+    "load_previous_experiment_state": false
+  },
+  "evaluation": {
+    "validation_policy": "deterministic_masked_policy",
+    "test_policy": "deterministic_masked_policy",
+    "test_trajectory_recording": "every_episode",
+    "metrics": ["success_rate", "collision_rate", "timeout_rate", "average_steps", "average_path_length", "SPL", "path_efficiency", "inference_seconds"],
+    "outcomes_exhaustive": true,
+    "astar_runtime_calls": 0,
+    "parameter_updates": 0
+  }
+}

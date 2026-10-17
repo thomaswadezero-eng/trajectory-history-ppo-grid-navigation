@@ -1,0 +1,106 @@
+{
+  "schema_version": "external_baseline_8seed_hypothesis_plan.v2",
+  "status": "FROZEN_BEFORE_NEW_FORMAL_RESULTS",
+  "frozen_at": "2026-09-20",
+  "created_before_new_external_baseline_results": true,
+  "experimental_unit": "independently trained policy identified by paired random seed",
+  "paired_seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "reference": {
+    "method": "FULL",
+    "mode": "READ_ONLY",
+    "result_root": "redacted_local_root\\final_two_factor_experiment_v7\\FULL",
+    "audited_seed_count": 8,
+    "retraining_permitted": false
+  },
+  "primary_metrics": ["success_rate", "spl", "path_efficiency"],
+  "metric_directions": {
+    "success_rate": "higher_is_better",
+    "spl": "higher_is_better",
+    "path_efficiency": "higher_is_better"
+  },
+  "families": [
+    {
+      "family_id": "EXTERNAL_DDQN_3_METRICS",
+      "family_size": 3,
+      "comparison": {"method_a": "DDQN", "method_b": "FULL"},
+      "hypotheses": [
+        {"hypothesis_id": "E_DDQN_SUCCESS", "metric": "success_rate", "direction": "higher_is_better"},
+        {"hypothesis_id": "E_DDQN_SPL", "metric": "spl", "direction": "higher_is_better"},
+        {"hypothesis_id": "E_DDQN_PATH_EFFICIENCY", "metric": "path_efficiency", "direction": "higher_is_better"}
+      ],
+      "multiple_comparison_correction": "Holm within this family only"
+    },
+    {
+      "family_id": "EXTERNAL_D3QN_3_METRICS",
+      "family_size": 3,
+      "comparison": {"method_a": "D3QN", "method_b": "FULL"},
+      "hypotheses": [
+        {"hypothesis_id": "E_D3QN_SUCCESS", "metric": "success_rate", "direction": "higher_is_better"},
+        {"hypothesis_id": "E_D3QN_SPL", "metric": "spl", "direction": "higher_is_better"},
+        {"hypothesis_id": "E_D3QN_PATH_EFFICIENCY", "metric": "path_efficiency", "direction": "higher_is_better"}
+      ],
+      "multiple_comparison_correction": "Holm within this family only"
+    },
+    {
+      "family_id": "EXTERNAL_C51_3_METRICS",
+      "family_size": 3,
+      "comparison": {"method_a": "C51", "method_b": "FULL"},
+      "hypotheses": [
+        {"hypothesis_id": "E_C51_SUCCESS", "metric": "success_rate", "direction": "higher_is_better"},
+        {"hypothesis_id": "E_C51_SPL", "metric": "spl", "direction": "higher_is_better"},
+        {"hypothesis_id": "E_C51_PATH_EFFICIENCY", "metric": "path_efficiency", "direction": "higher_is_better"}
+      ],
+      "multiple_comparison_correction": "Holm within this family only"
+    },
+    {
+      "family_id": "EXTERNAL_MASKABLEPPO_3_METRICS",
+      "family_size": 3,
+      "comparison": {"method_a": "MaskablePPO", "method_b": "FULL"},
+      "hypotheses": [
+        {"hypothesis_id": "E_MASKABLEPPO_SUCCESS", "metric": "success_rate", "direction": "higher_is_better"},
+        {"hypothesis_id": "E_MASKABLEPPO_SPL", "metric": "spl", "direction": "higher_is_better"},
+        {"hypothesis_id": "E_MASKABLEPPO_PATH_EFFICIENCY", "metric": "path_efficiency", "direction": "higher_is_better"}
+      ],
+      "multiple_comparison_correction": "Holm within this family only"
+    }
+  ],
+  "procedure": {
+    "test": "paired Wilcoxon signed-rank test",
+    "alternative": "two-sided",
+    "alpha": 0.05,
+    "pairing": "exact seed identity",
+    "wilcoxon_zero_method": "wilcox",
+    "wilcoxon_method": "auto",
+    "multiple_comparison_correction": "Holm separately within each predefined three-metric family",
+    "global_12_test_holm": false,
+    "effect_size": "paired rank-biserial correlation on benefit-oriented differences",
+    "bootstrap": {
+      "confidence_level": 0.95,
+      "statistic": "paired mean benefit-oriented difference",
+      "replicates": 100000,
+      "analysis_seed": 20260828
+    }
+  },
+  "descriptive_metrics": ["average_steps", "average_path_length", "collision_rate", "timeout_rate", "episode_reward"],
+  "manuscript_alignment": {
+    "current_manuscript": "07_Output/论文0827_english_v8_final_language_minimal_patch_text_revision_codex_v4.docx",
+    "current_manuscript_sha256": "A17E5CEC6DCE50002D3310FC02094534AF74892AB35E9E7B43068D520CF8B63B",
+    "section": "4.5",
+    "rule": "Holm correction applied separately within each predefined three-metric hypothesis family.",
+    "average_steps_rationale": "Average Steps combines successful and timeout episodes and is influenced by task success, timeout frequency, and successful trajectory length; it is descriptive rather than an independent path-efficiency hypothesis."
+  },
+  "c51_transparency": {
+    "path_efficiency_is_primary": true,
+    "old_three_seed_observation": "C51 mean Path Efficiency exceeds FULL in the existing three-seed table.",
+    "reporting_rule": "Retain and report the paired eight-seed C51 versus FULL Path Efficiency result regardless of direction or significance."
+  },
+  "prohibitions": [
+    "No one-sided test.",
+    "No global Holm correction across all 12 hypotheses.",
+    "No result-dependent change to family, metric, test, tail, or seed set.",
+    "No addition of Average Steps or another descriptive metric to a primary family.",
+    "No deletion or demotion of C51 Path Efficiency.",
+    "No post-hoc tuning or exclusion of DDQN, D3QN, C51, or MaskablePPO.",
+    "No formal significance analysis unless every comparison has all eight exact paired seeds."
+  ]
+}

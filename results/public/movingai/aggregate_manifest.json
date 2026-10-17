@@ -1,0 +1,49 @@
+{
+  "schema_version": "movingai_8seed_aggregate.v1",
+  "created_at_utc": "2026-10-15T02:55:38.462172+00:00",
+  "status": "COMPLETE_24_OF_24",
+  "methods": [
+    "PPO",
+    "PPO_Reward",
+    "FULL"
+  ],
+  "seeds": [
+    42,
+    1004,
+    6010,
+    68882,
+    19816,
+    74494,
+    81399,
+    31524
+  ],
+  "legacy_seed_count": 3,
+  "new_seed_count": 5,
+  "method_seed_combination_count": 24,
+  "formal_test_rows": 18000,
+  "episodes_per_combination": 750,
+  "input_sha256": {
+    "training_tasks": "F70E527E8EB9F8F2147B83A57B074F2EC1AB8081B9A51763127A32EB2E334DBF",
+    "validation_tasks": "B24FFADD8FFE6E56D00267F18D4A5C534CEDCD87F291D36627ACCC04B844907F",
+    "test_tasks": "A37D791FA279F0D7C045A2F7BEEFE6544A222250CEFC51609A9B76B3042C16C3",
+    "map_split": "15FBA4DBAABBD2B25C98BD92469F50279E6E39C3E3AD0B39D4BD81406F18FD07",
+    "task_split": "D5262F3E480AC93C27B7E2FD0AAB77E414A78AD28B9FC7FEDD25977C97E80A9E"
+  },
+  "extension_config_sha256": "018D98828E17FE159B4C6D71EB2157C611E223FCF431FD55F480F9D130B3A30A",
+  "extension_protocol_sha256": "8CB98E57717CE7CFB88CA7C4DEAD76F54680E783E4B17A18359FB78D8537226D",
+  "integrity_gates": {
+    "canonical_legacy_runs": "PASS_9_OF_9",
+    "new_runs": "PASS_15_OF_15",
+    "complete_matrix": "PASS_24_OF_24",
+    "test_task_identity": "PASS",
+    "checkpoint_selection_validation_only": "PASS",
+    "validation_astar_runtime_calls_zero": "PASS",
+    "test_astar_runtime_calls_zero": "PASS"
+  },
+  "statistics": {
+    "mean_and_sample_sd": true,
+    "paired_differences": true,
+    "formal_inferential_tests_executed": false,
+    "inferential_status": "NOT_AUTHORIZED"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schema_version": "ppo_progress_8seed.v2.protocol",
+  "status": "FROZEN_AND_AUTHORIZED",
+  "formal_execution_allowed": true,
+  "protocol_sha256_rule": "SHA-256 of exact UTF-8 bytes with only protocol_sha256 replaced by 64 ASCII zero characters",
+  "protocol_sha256": "F43DC728A82894344357F2EEBAC039E22B3F29A4EBC5E64085DC674590912C66",
+  "authorized_program": "03_Code/ppo_progress_8seed_v2/ppo_progress_8seed_v2.py",
+  "authorized_program_sha256": "E7F0E8C38BD403D1DF5E836307484B1A9B31B6D13EE6AD33532F727787C1C129",
+  "configuration": {
+    "path": "03_Code/ppo_progress_8seed_v2/experiment_config.json",
+    "self_field_zeroed_sha256": "F69BC09C6AFF103A1D8A665B5E8C948F02DA15E36AD37807B21DBDF7034DAD5A"
+  },
+  "configurations": {
+    "PPO_PROGRESS": {
+      "display_name": "PPO+Progress",
+      "reward_components": {
+        "progress": true,
+        "revisit": false,
+        "oscillation": false,
+        "stagnation": false
+      },
+      "astar_supervision": false,
+      "distillation_loss": false,
+      "planning_loss": false
+    }
+  },
+  "official_seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "revision_identity": {
+    "dataset": "BARN 30x30",
+    "interaction_budget": 900000,
+    "validation_interval": 100000,
+    "test_episodes": 1000,
+    "seed_independent_protocol_identity": true,
+    "frozen_v7_program_sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+    "reward_switch_parent_program_sha256": "A1FA5959884B782D356B28C359102DBC57D4FA8B32A3D714A0CEBC6C9BA4ADE4",
+    "runtime_constructor_contract": "NavigationEnvironment(config, maps, reward_enabled)",
+    "training_translation": {
+      "reward_enabled": true,
+      "progress": true,
+      "revisit": false,
+      "oscillation": false,
+      "stagnation": false
+    },
+    "evaluation_translation": {
+      "reward_enabled": false,
+      "progress": false,
+      "revisit": false,
+      "oscillation": false,
+      "stagnation": false
+    }
+  },
+  "isolation_assertions": {
+    "training_astar_calls": 0,
+    "astar_training_query_attempts": 0,
+    "astar_training_targets_generated": 0,
+    "validation_astar_runtime_calls": 0,
+    "test_astar_runtime_calls": 0,
+    "validation_parameter_updates": 0,
+    "test_parameter_updates": 0,
+    "checkpoint_selection_split": "validation",
+    "output_root": "redacted_local_root\\revision_progress_only_8seed_v2"
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "schema_version": "movingai64_robustness_protocol.v1",
+  "status": "CONFIRMED_BY_USER",
+  "formal_execution_allowed": true,
+  "protocol_sha256_rule": "SHA-256 of exact UTF-8 bytes with only protocol_sha256 replaced by 64 ASCII zero characters",
+  "protocol_sha256": "E2BAE439F635A9247F8167AC3B05030D195DC2F9545D8F497E577668B1954D82",
+  "feasibility_classification": "64X64_COMPATIBLE_WITH_SHAPE_ONLY_ADAPTATION",
+  "trainable_architecture_modified": false,
+  "authority": {
+    "legacy_v7_program": "03_Code/final_two_factor_experiment_v7/final_two_factor_experiment_v7.py",
+    "legacy_v7_sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+    "eight_seed_extension_program": "03_Code/final_two_factor_experiment_v7_8seed/final_two_factor_experiment_v7_8seed.py",
+    "eight_seed_extension_sha256": "19290D3A23DCC8E10FD4264EF9D8A3FEC4A691CFFD8A69C6FDEE8DE65C8EF8DD",
+    "delegation_rule": "Import and call frozen Legacy V7 training classes and run_experiment; do not copy or rewrite ActorCritic, PPOAgent, Dynamic Reward, A* supervisor, evaluator, or training loop."
+  },
+  "methods": [
+    "PPO",
+    "PPO_Reward",
+    "FULL"
+  ],
+  "method_labels": {
+    "PPO": "PPO",
+    "PPO_Reward": "PPO+Reward",
+    "FULL": "FULL"
+  },
+  "forbidden_methods": [
+    "PPO_Astar",
+    "PPG",
+    "DDQN",
+    "D3QN",
+    "C51",
+    "MaskablePPO",
+    "Curriculum",
+    "Escape Reward",
+    "HER",
+    "SAC"
+  ],
+  "seed_design": {
+    "recommended_seeds": [
+      42,
+      1004,
+      6010
+    ],
+    "user_selected_seeds": [
+      42,
+      1004,
+      6010
+    ],
+    "confirmed_seeds": [
+      42,
+      1004,
+      6010
+    ],
+    "status": "CONFIRMED_BY_USER",
+    "rationale": "Matched paired seeds used by the existing Moving AI robustness evaluation and the original three-seed V7 experiment; no evidence currently requires eight seeds for this new large-grid robustness experiment."
+  },
+  "interaction_budget": 900000,
+  "interaction_budget_status": "FIXED_BY_CURRENT_TASK_DEFAULT",
+  "horizon": {
+    "recommended_value": 400,
+    "historical_reference_value": 180,
+    "candidate_horizons": [
+      180,
+      240,
+      300,
+      360,
+      400,
+      420,
+      450
+    ],
+    "confirmed_value": 400,
+    "status": "CONFIRMED_BY_USER",
+    "selection_rule": "The pre-training recommendation is fixed at 400 after review of the model-free candidate audit. Formal confirmation still requires the user-only confirm_protocol.py command, and the horizon must never be changed later in response to PPO, PPO+Reward, or FULL performance.",
+    "reason": "The primary predefined basis is preservation of the historical horizon-to-maximum-Manhattan-distance scale: 180/58*126 = 391.0344827586207, rounded to the clean declared value 400. The audit independently shows that 300 is the smallest candidate covering at least 95% in every subset, while 400 gives near-complete observed coverage and feasible quotas.",
+    "pre_training_selection": {
+      "status": "USER_SELECTED_RECOMMENDATION_PENDING_FORMAL_PROTOCOL_CONFIRMATION",
+      "selected_horizon": 400,
+      "model_performance_used": false,
+      "minimum_candidate_horizon_covering_at_least_95_percent_in_every_subset": 300,
+      "quota_feasibility_status": "QUOTA_FEASIBLE_AT_HORIZON",
+      "quota_margin_status": "QUOTA_MARGIN_TIGHT",
+      "tight_quota_margin_decision": "USER_SELECTED_H400_AFTER_CANDIDATE_AUDIT_REVIEW_PENDING_CONFIRM_PROTOCOL",
+      "post_result_horizon_changes_allowed": false
+    },
+    "quota_margin_acceptance": "USER_ACCEPTS_TIGHT_QUOTA_MARGIN"
+  },
+  "candidate_audit_evidence": {
+    "path": "redacted_local_root\\03_Code\\movingai_64x64_robustness_v1\\candidate_audit_report.json",
+    "sha256": "97461BF4A829454E636A5C4691D535B41C90618DE99D2493F26D6BFD6BA5023A",
+    "schema_version": "movingai64_candidate_audit.v2",
+    "status": "PASS",
+    "selected_horizon": 400,
+    "selection_rule": "Geometry-scaled pre-training protocol decision: 180/58*126 = 391.0344827586207, rounded to 400; audit coverage and quota feasibility are safeguards, not model-performance tuning.",
+    "candidate_audit_used_model_results": false,
+    "horizon_400_coverage": {
+      "ALL": 0.9986848285580084,
+      "DAO": 1.0,
+      "Room": 1.0,
+      "Maze": 0.9965790245332812
+    },
+    "horizon_400_split_shortages": [],
+    "horizon_400_quota_feasibility_status": "QUOTA_FEASIBLE_AT_HORIZON",
+    "horizon_400_quota_margin_status": "QUOTA_MARGIN_TIGHT"
+  },
+  "data": {
+    "source": "Existing Moving AI DAO, Room, and Maze raw .map/.scen files already used by movingai_robustness_v1",
+    "raw_root": "redacted_local_root",
+    "processed_root": "redacted_local_root\\processed_64x64_v1",
+    "task_artifact_status": "CONFIRMED_BY_USER",
+    "crop": {
+      "resolution": "original_cells_no_resize",
+      "shape": [
+        64,
+        64
+      ],
+      "axis_low": "max(0,max(start,goal)-63)",
+      "axis_high": "min(min(start,goal),source_length-64)",
+      "preferred": "floor((start+goal)/2-31.5)_then_clamp"
+    },
+    "source_map_split_rule": "Split by raw source-map identity before task selection; source maps and task IDs must be pairwise disjoint across train, validation, and test.",
+    "draft_source_map_quotas": {
+      "train": {
+        "DAO": 40,
+        "Room": 20,
+        "Maze": 25
+      },
+      "validation": {
+        "DAO": 10,
+        "Room": 5,
+        "Maze": 10
+      },
+      "test": {
+        "DAO": 40,
+        "Room": 15,
+        "Maze": 25
+      }
+    },
+    "draft_task_targets": {
+      "train": {
+        "DAO": 380,
+        "Room": 190,
+        "Maze": 230
+      },
+      "validation": {
+        "DAO": 80,
+        "Room": 40,
+        "Maze": 80
+      },
+      "test": {
+        "DAO": 380,
+        "Room": 140,
+        "Maze": 230
+      }
+    },
+    "maximum_tasks_per_source_map": 10,
+    "construction_seed": 20260920,
+    "shortest_path": "Candidate audit first retains every reachable four-neighbor unit-cost BFS candidate without horizon truncation; formal generation applies only the horizon later selected by the user.",
+    "leakage_guards": [
+      "source_map_sha_disjoint",
+      "source_map_path_disjoint",
+      "task_id_disjoint",
+      "crop_signature_disjoint"
+    ]
+  },
+  "shape_only_adaptation": {
+    "environment.map_size": {
+      "from": 30,
+      "to": 64
+    },
+    "state.spatial_shape": {
+      "from": [
+        5,
+        30,
+        30
+      ],
+      "to": [
+        5,
+        64,
+        64
+      ]
+    },
+    "network.spatial_input_shape_metadata": {
+      "from": [
+        5,
+        30,
+        30
+      ],
+      "to": [
+        5,
+        64,
+        64
+      ]
+    },
+    "unchanged_trainable_layers": true,
+    "unchanged_adaptive_pool": [
+      4,
+      4
+    ],
+    "unchanged_spatial_projection": [
+      1024,
+      256
+    ]
+  },
+  "training_and_evaluation": {
+    "validation_interval_interactions": 100000,
+    "checkpoint_ranking": [
+      "success_rate_desc",
+      "spl_desc",
+      "timeout_rate_asc",
+      "average_steps_asc",
+      "interaction_count_asc"
+    ],
+    "test_policy": "deterministic masked policy",
+    "planning_head_used_for_action_selection": false,
+    "validation_astar_runtime_calls": 0,
+    "test_astar_runtime_calls": 0,
+    "test_parameter_updates": 0
+  },
+  "runtime_preflight": {
+    "status": "RUNTIME_VERIFICATION_PENDING_USER",
+    "marker": "redacted_local_root\\revision_movingai64_robustness_v1\\preflight\\PREFLIGHT_PASS.json"
+  },
+  "formal_training": {
+    "status": "NOT_STARTED",
+    "max_concurrent_formal_children": 1
+  },
+  "statistics": {
+    "always_generate": [
+      "seed_level_summary",
+      "mean_plus_minus_sample_sd",
+      "paired_method_differences"
+    ],
+    "n3_policy": "DESCRIPTIVE_ROBUSTNESS_EVIDENCE_ONLY",
+    "inferential_status": "DRAFT_NOT_AUTHORIZED",
+    "inferential_gate": "Fail closed unless at least eight confirmed paired seeds and a separately confirmed inferential plan exist before results are viewed."
+  },
+  "generated_task_identity": {
+    "path": "redacted_local_root\\processed_64x64_v1\\manifests\\generated_task_identity.json",
+    "sha256": "BB58C2A723BFEB8BF4519559589E78A7C39BF2F536DBB8B53ECD2C78C1A34F5E"
+  },
+  "candidate_audit_report": {
+    "path": "redacted_local_root\\03_Code\\movingai_64x64_robustness_v1\\candidate_audit_report.json",
+    "sha256": "97461BF4A829454E636A5C4691D535B41C90618DE99D2493F26D6BFD6BA5023A",
+    "selected_horizon": 400,
+    "quota_feasibility_status": "QUOTA_FEASIBLE_AT_HORIZON",
+    "quota_margin_status": "QUOTA_MARGIN_TIGHT"
+  },
+  "configuration": {
+    "path": "redacted_local_root\\03_Code\\movingai_64x64_robustness_v1\\movingai64_config_confirmed.json",
+    "self_field_zeroed_sha256": "74840FB55C315109351ED0D7E790C8698B0A920F0643529D66031AC76ACABDE1"
+  }
+}

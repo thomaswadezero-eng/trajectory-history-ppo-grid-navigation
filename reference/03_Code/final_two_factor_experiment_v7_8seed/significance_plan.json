@@ -1,0 +1,132 @@
+{
+  "schema_version": "v7_8seed_significance_plan.v1",
+  "status": "FROZEN_BEFORE_NEW_RESULTS",
+  "plan_created_at": "2026-08-28T00:06:26+08:00",
+  "analysis_plan_frozen_at": "2026-08-28T00:06:26+08:00",
+  "authoritative_legacy_v7": {
+    "program_path": "redacted_local_root\\03_Code\\final_two_factor_experiment_v7\\final_two_factor_experiment_v7.py",
+    "program_sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+    "config_self_field_zeroed_sha256": "489431F4C5609FC1F7148D56D152D22C1252F6B6AF79CE8AE09716E1F8D84B8D",
+    "protocol_self_field_zeroed_sha256": "7887F254E31A1C6A0CDB95994EF3C18CC3A8A43775D8D6BD16475FDFB042ADB7",
+    "seeds": [42, 1004, 6010]
+  },
+  "v7_8seed_authorization_extension": {
+    "program_path": "redacted_local_root\\03_Code\\final_two_factor_experiment_v7_8seed\\final_two_factor_experiment_v7_8seed.py",
+    "program_sha256": "19290D3A23DCC8E10FD4264EF9D8A3FEC4A691CFFD8A69C6FDEE8DE65C8EF8DD",
+    "config_path": "redacted_local_root\\03_Code\\final_two_factor_experiment_v7_8seed\\experiment_config_v7_8seed.json",
+    "config_sha256": "A1B343EE2D5FA67D09D0D1D4119261DB045BD892A5A231F1E534399C2C86B5B0",
+    "config_file_sha256": "6F39A3DEAC6AF9A7CC7BE3237DEE2DC61AE5449B51AE1EDA49D0B456F2D8E731",
+    "protocol_path": "redacted_local_root\\03_Code\\final_two_factor_experiment_v7_8seed\\experiment_protocol_v7_8seed.json",
+    "protocol_sha256": "CDEE0BDB835466E8610E5952DFE6683480D25E78A13DD9BBCD822F09897421BA",
+    "protocol_file_sha256": "B51B1BB2DD72D89B964FD368F1ED36660A944EEEA1A1CC1EE33BD32555528B97",
+    "hash_manifest_path": "redacted_local_root\\03_Code\\final_two_factor_experiment_v7_8seed\\hash_manifest_v7_8seed.json",
+    "hash_manifest_sha256": "FB1F0316EE16F77A0D976A0E25C05E8F64BFB752F9CA0D7745A17F7FC3C54A8C",
+    "new_seeds": [68882, 19816, 74494, 81399, 31524]
+  },
+  "diff_audit": {
+    "path": "redacted_local_root\\03_Code\\final_two_factor_experiment_v7_8seed\\v7_to_v7_8seed_diff_audit.md",
+    "sha256": "6105769FDFF43AC6A8BB00D9047E5E5CB43208922B380617752C3B8E1D09964D",
+    "status": "PASS",
+    "conclusion": "Algorithmically relevant training behavior is unchanged."
+  },
+  "output_root": "redacted_local_root\\final_two_factor_experiment_v7",
+  "existing_seeds": [42, 1004, 6010],
+  "new_seeds": [68882, 19816, 74494, 81399, 31524],
+  "final_seed_list": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "abandoned_seeds_do_not_use": [2026, 12345, 27182, 31415, 54321],
+  "methods": [
+    {"display_name": "PPO", "cli_token": "PPO"},
+    {"display_name": "PPO+Reward", "cli_token": "PPO_Reward"},
+    {"display_name": "PPO+A*", "cli_token": "PPO_Astar"},
+    {"display_name": "FULL", "cli_token": "FULL"}
+  ],
+  "training_interaction_budget": 900000,
+  "queue_policy": {
+    "strictly_serial": true,
+    "maximum_simultaneous_training_processes": 1,
+    "continue_after_one_isolated_failure": true,
+    "abort_after_consecutive_failures": 2,
+    "rerun_existing_path": false,
+    "overwrite_existing_path": false,
+    "rerun_evaluation": false
+  },
+  "run_matrix": [
+    {"run_index": 1, "seed": 68882, "method": "PPO"},
+    {"run_index": 2, "seed": 68882, "method": "PPO_Reward"},
+    {"run_index": 3, "seed": 68882, "method": "PPO_Astar"},
+    {"run_index": 4, "seed": 68882, "method": "FULL"},
+    {"run_index": 5, "seed": 19816, "method": "PPO"},
+    {"run_index": 6, "seed": 19816, "method": "PPO_Reward"},
+    {"run_index": 7, "seed": 19816, "method": "PPO_Astar"},
+    {"run_index": 8, "seed": 19816, "method": "FULL"},
+    {"run_index": 9, "seed": 74494, "method": "PPO"},
+    {"run_index": 10, "seed": 74494, "method": "PPO_Reward"},
+    {"run_index": 11, "seed": 74494, "method": "PPO_Astar"},
+    {"run_index": 12, "seed": 74494, "method": "FULL"},
+    {"run_index": 13, "seed": 81399, "method": "PPO"},
+    {"run_index": 14, "seed": 81399, "method": "PPO_Reward"},
+    {"run_index": 15, "seed": 81399, "method": "PPO_Astar"},
+    {"run_index": 16, "seed": 81399, "method": "FULL"},
+    {"run_index": 17, "seed": 31524, "method": "PPO"},
+    {"run_index": 18, "seed": 31524, "method": "PPO_Reward"},
+    {"run_index": 19, "seed": 31524, "method": "PPO_Astar"},
+    {"run_index": 20, "seed": 31524, "method": "FULL"}
+  ],
+  "statistical_analysis": {
+    "experimental_unit": "independently trained policy identified by random seed",
+    "paired_analysis_required": true,
+    "required_pair_count": 8,
+    "episode_level_pseudoreplication_forbidden": true,
+    "test": "two-sided paired Wilcoxon signed-rank test",
+    "alternative": "two-sided",
+    "alpha": 0.05,
+    "multiple_comparison_correction": "Holm correction applied separately within each three-metric hypothesis family",
+    "wilcoxon_zero_method": "wilcox",
+    "wilcoxon_method": "auto",
+    "effect_size": "paired rank-biserial correlation computed on benefit-oriented differences",
+    "bootstrap": {
+      "enabled": true,
+      "confidence_level": 0.95,
+      "statistic": "paired mean benefit-oriented difference",
+      "replicates": 100000,
+      "analysis_seed": 20260828
+    },
+    "metric_directions": {
+      "success_rate": "higher_is_better",
+      "spl": "higher_is_better",
+      "path_efficiency": "higher_is_better",
+      "average_steps": "lower_is_better",
+      "timeout_rate": "lower_is_better",
+      "collision_rate": "lower_is_better"
+    },
+    "hypothesis_families": [
+      {
+        "hypothesis": "H1",
+        "comparison": "PPO vs PPO+Reward",
+        "method_a": "PPO",
+        "method_b": "PPO_Reward",
+        "primary_metrics": ["success_rate", "spl", "timeout_rate"]
+      },
+      {
+        "hypothesis": "H2",
+        "comparison": "PPO+A* vs FULL",
+        "method_a": "PPO_Astar",
+        "method_b": "FULL",
+        "primary_metrics": ["success_rate", "spl", "timeout_rate"]
+      },
+      {
+        "hypothesis": "H3",
+        "comparison": "PPO+Reward vs FULL",
+        "method_a": "PPO_Reward",
+        "method_b": "FULL",
+        "primary_metrics": ["spl", "path_efficiency", "average_steps"],
+        "interpretive_scope": "Tests whether training-only A* cost-to-go supervision adds stable path-quality or path-efficiency benefit when Dynamic Reward already provides high task-completion capability; it is not pre-registered as a claim that A* primarily improves task completion."
+      }
+    ],
+    "required_outputs": [
+      "main_results_8seed.csv",
+      "significance_results.csv",
+      "significance_report.md"
+    ]
+  }
+}

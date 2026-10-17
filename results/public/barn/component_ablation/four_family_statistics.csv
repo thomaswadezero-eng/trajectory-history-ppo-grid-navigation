@@ -1,0 +1,13 @@
+family_id,component,metric,family_size,raw_p,holm_adjusted_p,holm_adjusted_p_crosscheck,holm_crosscheck_match,alpha,adjusted_p_lt_0_05,correction_scope
+PROGRESS_3_METRICS,Progress,success_rate,3,0.0078125,0.0234375,0.0234375,True,0.05,True,"this component's Success Rate, SPL, and Timeout Rate only"
+PROGRESS_3_METRICS,Progress,spl,3,0.0078125,0.0234375,0.0234375,True,0.05,True,"this component's Success Rate, SPL, and Timeout Rate only"
+PROGRESS_3_METRICS,Progress,timeout_rate,3,0.0078125,0.0234375,0.0234375,True,0.05,True,"this component's Success Rate, SPL, and Timeout Rate only"
+REVISIT_3_METRICS,Revisit,success_rate,3,0.7421875,1.0,1.0,True,0.05,False,"this component's Success Rate, SPL, and Timeout Rate only"
+REVISIT_3_METRICS,Revisit,spl,3,0.015625,0.046875,0.046875,True,0.05,True,"this component's Success Rate, SPL, and Timeout Rate only"
+REVISIT_3_METRICS,Revisit,timeout_rate,3,0.7421875,1.0,1.0,True,0.05,False,"this component's Success Rate, SPL, and Timeout Rate only"
+OSCILLATION_3_METRICS,Oscillation,success_rate,3,0.0078125,0.0234375,0.0234375,True,0.05,True,"this component's Success Rate, SPL, and Timeout Rate only"
+OSCILLATION_3_METRICS,Oscillation,spl,3,0.0078125,0.0234375,0.0234375,True,0.05,True,"this component's Success Rate, SPL, and Timeout Rate only"
+OSCILLATION_3_METRICS,Oscillation,timeout_rate,3,0.0078125,0.0234375,0.0234375,True,0.05,True,"this component's Success Rate, SPL, and Timeout Rate only"
+STAGNATION_3_METRICS,Stagnation,success_rate,3,1.0,1.0,1.0,True,0.05,False,"this component's Success Rate, SPL, and Timeout Rate only"
+STAGNATION_3_METRICS,Stagnation,spl,3,1.0,1.0,1.0,True,0.05,False,"this component's Success Rate, SPL, and Timeout Rate only"
+STAGNATION_3_METRICS,Stagnation,timeout_rate,3,1.0,1.0,1.0,True,0.05,False,"this component's Success Rate, SPL, and Timeout Rate only"

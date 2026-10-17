@@ -1,0 +1,235 @@
+{
+  "schema_version": "movingai64_8seed_extension_config.v1",
+  "status": "CONFIRMED_BY_USER",
+  "formal_execution_allowed": true,
+  "config_sha256_rule": "SHA-256 of exact UTF-8 bytes with only config_sha256 replaced by 64 ASCII zero characters",
+  "config_sha256": "018D98828E17FE159B4C6D71EB2157C611E223FCF431FD55F480F9D130B3A30A",
+  "authority_program": "03_Code/final_two_factor_experiment_v7/final_two_factor_experiment_v7.py",
+  "authority_program_sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+  "adapter_program": "03_Code/movingai_64x64_robustness_v1/run_movingai64_wrapper.py",
+  "extension_launcher": "03_Code/movingai_8seed_extension/run_movingai_8seed_extension.py",
+  "extension_aggregator": "03_Code/movingai_8seed_extension/aggregate_movingai_8seed_results.py",
+  "program_sha256": {
+    "authority": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+    "legacy_wrapper": "BF5BEA1B264A68A87EF7F7E7C0156BF9E1F2DF6EB3AD392317CF75F09C297669",
+    "legacy_protocol_utils": "52DD5D8706FC99276570C6F513DC209385B8C91835D03B9E7A163513CCC06B04",
+    "launcher": "AD1F036D0B4329AE4C2A583831D3B30EFC7593735B0C84CDDD55D918817224AA",
+    "aggregator": "775E3321EFF94101FA35B18B54D45F4BD882675A2BC1907C555708207FDECADC",
+    "extension_utils": "ED857A1194EDE6CCE99EC6463AB9A27776FD996ADACB1E3DDD46CA5CE0474AE6"
+  },
+  "output_root": "redacted_local_root\\revision_movingai_8seed_extension",
+  "official_seeds": [
+    42,
+    1004,
+    6010,
+    68882,
+    19816,
+    74494,
+    81399,
+    31524
+  ],
+  "seed_status": "CONFIRMED_BY_USER",
+  "extension_scope": {
+    "legacy_read_only_seeds": [42, 1004, 6010],
+    "new_training_seeds": [68882, 19816, 74494, 81399, 31524],
+    "new_training_run_count": 15,
+    "combined_run_count": 24,
+    "reuse_legacy_results_without_copy_or_rewrite": true
+  },
+  "random_streams": {
+    "training_task_seed_offset": 104729,
+    "astar_query_seed_offset": 130363
+  },
+  "configurations": {
+    "PPO": {
+      "astar_supervision": false,
+      "dynamic_reward": false
+    },
+    "PPO_Reward": {
+      "astar_supervision": false,
+      "dynamic_reward": true
+    },
+    "FULL": {
+      "astar_supervision": true,
+      "dynamic_reward": true
+    }
+  },
+  "fairness_constraints": {
+    "shared_inputs": true,
+    "shared_network": true,
+    "shared_ppo": true,
+    "shared_interaction_budget": true,
+    "shared_seeds": true,
+    "only_factor_switches": [
+      "astar_supervision",
+      "dynamic_reward"
+    ],
+    "test_parameter_updates": 0,
+    "validation_astar_runtime_calls": 0,
+    "test_astar_runtime_calls": 0
+  },
+  "inputs": {
+    "training_tasks": {
+      "path": "redacted_local_root\\processed_64x64_v1\\manifests\\training_tasks.json",
+      "sha256": "F70E527E8EB9F8F2147B83A57B074F2EC1AB8081B9A51763127A32EB2E334DBF"
+    },
+    "validation_tasks": {
+      "path": "redacted_local_root\\processed_64x64_v1\\manifests\\validation_tasks.json",
+      "sha256": "B24FFADD8FFE6E56D00267F18D4A5C534CEDCD87F291D36627ACCC04B844907F"
+    },
+    "test_tasks": {
+      "path": "redacted_local_root\\processed_64x64_v1\\manifests\\test_tasks.json",
+      "sha256": "A37D791FA279F0D7C045A2F7BEEFE6544A222250CEFC51609A9B76B3042C16C3"
+    },
+    "map_split": {
+      "path": "redacted_local_root\\processed_64x64_v1\\manifests\\map_split.json",
+      "sha256": "15FBA4DBAABBD2B25C98BD92469F50279E6E39C3E3AD0B39D4BD81406F18FD07"
+    },
+    "task_split": {
+      "path": "redacted_local_root\\processed_64x64_v1\\manifests\\task_split.json",
+      "sha256": "D5262F3E480AC93C27B7E2FD0AAB77E414A78AD28B9FC7FEDD25977C97E80A9E"
+    }
+  },
+  "environment": {
+    "map_size": 64,
+    "action_count": 4,
+    "move_deltas": [
+      [-1, 0],
+      [1, 0],
+      [0, -1],
+      [0, 1]
+    ],
+    "max_steps": 400,
+    "historical_reference_max_steps": 180,
+    "candidate_horizons": [180, 240, 300, 360, 400, 420, 450],
+    "horizon_status": "CONFIRMED_BY_USER",
+    "occupancy_free_value": 0,
+    "occupancy_obstacle_value": 1,
+    "action_mask_enabled_for_all_configurations": true
+  },
+  "state": {
+    "spatial_channels": ["occupancy", "position", "goal", "cumulative_visit", "recent_trace"],
+    "spatial_shape": [5, 64, 64],
+    "history_order": ["normalized_timestep", "normalized_no_progress", "previous_action_0", "previous_action_1", "previous_action_2", "previous_action_3", "neighbor_visit_0", "neighbor_visit_1", "neighbor_visit_2", "neighbor_visit_3"],
+    "history_size": 10,
+    "visit_count_clip": 10,
+    "recent_trace_decay": 0.85,
+    "no_progress_counter_clip": 20,
+    "minimum_progress_epsilon": 0.000001
+  },
+  "network": {
+    "spatial_input_shape": [5, 64, 64],
+    "convolutions": [
+      {"in_channels": 5, "out_channels": 32, "kernel_size": 3, "stride": 1, "padding": 1},
+      {"in_channels": 32, "out_channels": 64, "kernel_size": 3, "stride": 2, "padding": 1},
+      {"in_channels": 64, "out_channels": 64, "kernel_size": 3, "stride": 2, "padding": 1}
+    ],
+    "adaptive_pool": [4, 4],
+    "spatial_projection": [1024, 256],
+    "history_mlp": [10, 64, 64],
+    "fusion": [320, 256],
+    "actor_head": [256, 128, 4],
+    "critic_head": [256, 128, 1],
+    "planning_head": [256, 128, 4],
+    "planning_head_instantiated_for_all_configurations": true,
+    "activation": "ReLU",
+    "fusion_normalization": "LayerNorm",
+    "weight_initialization": "pytorch_default",
+    "recurrent_layers": false,
+    "batch_normalization": false,
+    "dropout": false
+  },
+  "ppo": {
+    "optimizer": "Adam",
+    "learning_rate": 0.0002,
+    "weight_decay": 0.00001,
+    "adam_betas": [0.9, 0.999],
+    "adam_eps": 0.00000001,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_epsilon": 0.2,
+    "epochs": 3,
+    "rollout_size": 2048,
+    "minibatch_size": 2048,
+    "value_coefficient": 0.5,
+    "entropy_initial": 0.02,
+    "entropy_minimum": 0.002,
+    "entropy_decay": 0.995,
+    "advantage_clip": 5.0,
+    "max_gradient_norm": 0.5,
+    "advantage_normalization": true,
+    "advantage_normalization_epsilon": 0.00000001,
+    "critic_loss": "mean_squared_error",
+    "clipped_objective": true
+  },
+  "reward": {
+    "base": {"goal": 1.0, "collision": -0.2, "timeout": -0.2, "step": -0.002},
+    "dynamic": {
+      "distance_metric": "euclidean",
+      "distance_normalization": "grid_diagonal",
+      "distance_weight": 1.0,
+      "distance_progress_clip": 0.05,
+      "revisit_weight": 0.004,
+      "oscillation_weight": 0.008,
+      "stagnation_weight": 0.004,
+      "oscillation_lookback_steps": [2, 4],
+      "escape_threshold": 14,
+      "escape_minimum_progress": 0.000001,
+      "accounting_tolerance": 0.0000001,
+      "uses_astar_information": false
+    }
+  },
+  "astar": {
+    "training_only": true,
+    "expert_action_injection": false,
+    "action_imitation_loss_enabled": false,
+    "anchor_rehearsal_enabled": false,
+    "modifies_reward": false,
+    "modifies_ppo_advantage": false,
+    "integration": "soft_planning_auxiliary_loss",
+    "planner": "four_neighbor_unit_cost_manhattan",
+    "planning_cost_normalization": "min(shortest_path_length_after_action/max_steps,1.0)",
+    "soft_target_temperature": 0.1,
+    "astar_distill_weight": 0.25,
+    "planning_loss_weight": 1.0,
+    "maximum_auxiliary_weight": 0.5,
+    "planning_huber_delta": 1.0,
+    "unreachable_successor_cost_cap": 1.0,
+    "loss_ratio_epsilon": 0.000000000001,
+    "distillation_schedule": {
+      "clock": "executed_training_interaction_count",
+      "reference_interactions": 900000,
+      "constant_until_fraction": 0.1,
+      "zero_after_fraction": 0.3,
+      "transition": "cosine_decay"
+    },
+    "astar_guidance_schedule": {
+      "clock": "executed_training_interaction_count",
+      "reference_interactions": 900000,
+      "constant_until_fraction": 0.3,
+      "zero_after_fraction": 0.5,
+      "transition": "cosine_decay"
+    },
+    "cache_capacity": 16384,
+    "validation_runtime_calls": 0,
+    "test_runtime_calls": 0
+  },
+  "training": {
+    "interaction_budget": 900000,
+    "task_sampling": "uniform_over_all_frozen_training_tasks",
+    "validation_interval_interactions": 100000,
+    "checkpoint_selection_split": "validation",
+    "checkpoint_ranking": ["success_rate_desc", "spl_desc", "timeout_rate_asc", "average_steps_asc", "interaction_count_asc"],
+    "resume_from_external_checkpoint": false,
+    "load_previous_experiment_state": false
+  },
+  "evaluation": {
+    "validation_policy": "deterministic_masked_policy",
+    "test_policy": "deterministic_masked_policy",
+    "test_trajectory_recording": "every_episode",
+    "metrics": ["success_rate", "collision_rate", "timeout_rate", "average_steps", "average_path_length", "SPL", "path_efficiency", "inference_seconds"],
+    "outcomes_exhaustive": true,
+    "astar_runtime_calls": 0,
+    "parameter_updates": 0
+  }
+}

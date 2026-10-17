@@ -1,0 +1,39 @@
+{
+  "schema_version": "ppo_progress_8seed.v2",
+  "status": "FROZEN_AND_AUTHORIZED",
+  "formal_execution_allowed": true,
+  "config_sha256_rule": "SHA-256 of exact UTF-8 bytes with only config_sha256 replaced by 64 ASCII zero characters",
+  "config_sha256": "F69BC09C6AFF103A1D8A665B5E8C948F02DA15E36AD37807B21DBDF7034DAD5A",
+  "authorized_program": "03_Code/ppo_progress_8seed_v2/ppo_progress_8seed_v2.py",
+  "authorized_program_sha256": "E7F0E8C38BD403D1DF5E836307484B1A9B31B6D13EE6AD33532F727787C1C129",
+  "output_root": "redacted_local_root\\revision_progress_only_8seed_v2",
+  "official_seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "configurations": {
+    "PPO_PROGRESS": {
+      "display_name": "PPO+Progress",
+      "reward_components": {
+        "progress": true,
+        "revisit": false,
+        "oscillation": false,
+        "stagnation": false
+      },
+      "astar_supervision": false,
+      "distillation_loss": false,
+      "planning_loss": false
+    }
+  },
+  "revision_identity": {
+    "frozen_v7_program_sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+    "frozen_v7_config_self_sha256": "489431F4C5609FC1F7148D56D152D22C1252F6B6AF79CE8AE09716E1F8D84B8D",
+    "frozen_v7_protocol_self_sha256": "7887F254E31A1C6A0CDB95994EF3C18CC3A8A43775D8D6BD16475FDFB042ADB7",
+    "reward_switch_parent_program_sha256": "A1FA5959884B782D356B28C359102DBC57D4FA8B32A3D714A0CEBC6C9BA4ADE4",
+    "implementation_strategy": "frozen_v7_core_plus_v7_compatible_reward_component_switch_facade",
+    "runtime_compatibility_fix": "translate_frozen_v7_reward_enabled_boolean_to_training_or_evaluation_reward_switches",
+    "algorithmic_differences_from_v1": [],
+    "administrative_differences_from_v1": [
+      "constructor_keyword_compatibility",
+      "independent_program_config_protocol_identity",
+      "independent_output_root"
+    ]
+  }
+}

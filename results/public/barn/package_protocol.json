@@ -1,0 +1,37 @@
+{
+  "schema_version": "barn_released_results.v1",
+  "status": "DESCRIPTIVE_RESULTS_WITH_RECORDED_INFERENTIAL_OUTPUTS",
+  "seeds": [
+    42,
+    1004,
+    6010,
+    68882,
+    19816,
+    74494,
+    81399,
+    31524
+  ],
+  "branch_seeds": [
+    42,
+    1004,
+    6010
+  ],
+  "episode_count_per_seed": 1000,
+  "training_interactions": 900000,
+  "unique_source_files": 75,
+  "frozen_source_count": 159,
+  "frozen_source_manifest_sha256": "A7D845D826253B4F5DE76E01E1E046577EDE2E1BEE789E17C7920E4343CF8E67",
+  "no_new_inference": true,
+  "PPG": "FORMAL_COMPLETION_NOT_CONFIRMED",
+  "publication_status": "ORIGINAL_SOFTWARE_MIT_DATASETS_NOT_DISTRIBUTED",
+  "metrics": {
+    "success_rate": "success_count / episode_count",
+    "spl": "Mean over ALL episodes of success * shortest_path_length / max(shortest_path_length, executed_path_length)",
+    "path_efficiency": "Mean path ratio conditioned on success WITHIN each seed; zero if no successes. Across-seed mean is not a pooled successful-episode mean.",
+    "average_steps": "Mean over ALL episodes",
+    "timeout_rate": "timeout_count / episode_count",
+    "dispersion": "Sample SD across independent trained seeds, ddof=1"
+  },
+  "hash_semantics": "Ordinary complete-file SHA for source_evidence_manifest; runtime config/protocol identities may use frozen self-field-zeroed hashing and are retained separately.",
+  "frozen_source_count_scope": "HISTORICAL_ARCHIVE_NOT_DISTRIBUTED_FILE_COUNT"
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "final_two_factor_hash_manifest.v7",
+  "hash_algorithm": "SHA-256",
+  "files": {
+    "03_Code/final_two_factor_experiment_v7_8seed/final_two_factor_experiment_v7_8seed.py": "19290D3A23DCC8E10FD4264EF9D8A3FEC4A691CFFD8A69C6FDEE8DE65C8EF8DD",
+    "03_Code/final_two_factor_experiment_v7_8seed/experiment_config_v7_8seed.json": "6F39A3DEAC6AF9A7CC7BE3237DEE2DC61AE5449B51AE1EDA49D0B456F2D8E731",
+    "03_Code/final_two_factor_experiment_v7_8seed/experiment_protocol_v7_8seed.json": "B51B1BB2DD72D89B964FD368F1ED36660A944EEEA1A1CC1EE33BD32555528B97",
+    "03_Code/final_two_factor_experiment_v7_8seed/map_split.json": "637792B5F70F086AD534E3CAE70C03F2640EE402C8F8D09B16979E1910C4EBB1",
+    "03_Code/final_two_factor_experiment_v7_8seed/task_split.json": "268A76CF6D4BD2AC6A2BA6CFB6B281527326F06D0B0BA148BAD453D90414F693",
+    "03_Code/final_two_factor_experiment_v7_8seed/README.md": "A9A3519AEC54E3647CCF96091C276CDC1CD1C85142F0C81609749134C1220849",
+    "03_Code/training_tasks_v2.json": "D29146F90A9B73749B1FADAA0E563618E547A817422EB7A5D9D2A6F18DAFDBF5",
+    "03_Code/validation_tasks_v2.json": "AAC69C346AEEFB3FDD27E8576493A60D30CFB0989CA23634750D7118D417194B",
+    "03_Code/test_tasks_v9_unseen_final.json": "CC3C33B00772F8D1B6314FFADC94F8B7D5B86230C1BF445C5C6BCF15570E8397"
+  },
+  "configuration_self_field_zeroed_sha256": "A1B343EE2D5FA67D09D0D1D4119261DB045BD892A5A231F1E534399C2C86B5B0",
+  "protocol_self_field_zeroed_sha256": "CDEE0BDB835466E8610E5952DFE6683480D25E78A13DD9BBCD822F09897421BA"
+}

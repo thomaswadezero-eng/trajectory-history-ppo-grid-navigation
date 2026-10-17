@@ -1,0 +1,120 @@
+{
+  "schema_version": "sb3_external_baseline.v1",
+  "status": "AUTHORIZED_FOR_MANUAL_EXECUTION_ONLY",
+  "formal_execution_owner": "user_in_vscode",
+  "algorithm": {
+    "name": "SB3-Contrib MaskablePPO",
+    "stable_baselines3_version": "2.9.0",
+    "sb3_contrib_version": "2.9.0",
+    "python_version": "3.10.11",
+    "torch_version": "2.8.0+cu128",
+    "gymnasium_version": "1.3.0"
+  },
+  "official_seeds": [42, 1004, 6010],
+  "inputs": {
+    "v7_program": {
+      "path": "03_Code/final_two_factor_experiment_v7/final_two_factor_experiment_v7.py",
+      "sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D"
+    },
+    "v7_config": {
+      "path": "03_Code/final_two_factor_experiment_v7/experiment_config.json",
+      "sha256": "CF229DE128FF16E29B73308A7E9B2756DE51294671573F067306274EDA8D4166"
+    },
+    "training_tasks": {
+      "path": "03_Code/training_tasks_v2.json",
+      "sha256": "D29146F90A9B73749B1FADAA0E563618E547A817422EB7A5D9D2A6F18DAFDBF5",
+      "count": 1000,
+      "map_ids": [0, 19]
+    },
+    "validation_tasks": {
+      "path": "03_Code/validation_tasks_v2.json",
+      "sha256": "AAC69C346AEEFB3FDD27E8576493A60D30CFB0989CA23634750D7118D417194B",
+      "count": 100,
+      "map_ids": [20, 29]
+    },
+    "test_tasks": {
+      "path": "03_Code/test_tasks_v9_unseen_final.json",
+      "sha256": "CC3C33B00772F8D1B6314FFADC94F8B7D5B86230C1BF445C5C6BCF15570E8397",
+      "count": 1000,
+      "map_ids": [130, 229]
+    },
+    "current_cspace_aggregate_sha256": "7B1C328FD66600C5F0BCE015A13CE57EF06F7673B6DBB2F9D1EAFAF1F3C4223D"
+  },
+  "environment": {
+    "map_size": 30,
+    "max_steps": 180,
+    "action_count": 4,
+    "move_deltas": [[-1, 0], [1, 0], [0, -1], [0, 1]],
+    "task_seed_offset": 104729,
+    "timeout_is_terminal": true
+  },
+  "state": {
+    "spatial_shape": [5, 30, 30],
+    "history_size": 10,
+    "visit_count_clip": 10,
+    "recent_trace_decay": 0.85,
+    "no_progress_counter_clip": 20,
+    "minimum_progress_epsilon": 1e-6
+  },
+  "reward": {
+    "goal": 1.0,
+    "collision": -0.2,
+    "timeout": -0.2,
+    "step": -0.002,
+    "dynamic_reward": false,
+    "astar": false
+  },
+  "network": {
+    "feature_extractor": "V7FeatureExtractor",
+    "activation": "ReLU",
+    "orthogonal_initialization": false,
+    "normalize_images": false,
+    "shared_feature_extractor": true,
+    "policy_head": [256, 128, 4],
+    "value_head": [256, 128, 1]
+  },
+  "ppo": {
+    "learning_rate": 0.0002,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "clip_range_vf": null,
+    "n_epochs": 3,
+    "n_steps": 2048,
+    "batch_size": 2048,
+    "normalize_advantage": true,
+    "value_coefficient": 0.5,
+    "maximum_gradient_norm": 0.5,
+    "entropy_initial": 0.02,
+    "entropy_minimum": 0.002,
+    "entropy_decay": 0.995,
+    "optimizer": "Adam",
+    "weight_decay": 0.00001,
+    "adam_betas": [0.9, 0.999],
+    "adam_eps": 1e-8,
+    "target_kl": null
+  },
+  "training": {
+    "interaction_budget": 900000,
+    "validation_interval": 100000,
+    "exact_budget_callback_stop": true,
+    "discard_incomplete_final_rollout": true,
+    "checkpoint_ranking": [
+      "success_rate_desc",
+      "spl_desc",
+      "timeout_rate_asc",
+      "average_steps_asc",
+      "interaction_count_asc"
+    ]
+  },
+  "evaluation": {
+    "deterministic": true,
+    "validation_episodes": 100,
+    "test_episodes": 1000,
+    "record_all_test_trajectories": true,
+    "parameter_updates": 0,
+    "astar_runtime_calls": 0,
+    "dynamic_reward": false
+  },
+  "output_root": "03_Code/external_baselines/outputs"
+}

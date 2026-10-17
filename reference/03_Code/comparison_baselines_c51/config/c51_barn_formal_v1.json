@@ -1,0 +1,189 @@
+{
+  "schema_version": "c51_barn_external_baseline.v1",
+  "status": "AUTHORIZED_FOR_MANUAL_EXECUTION_ONLY",
+  "formal_execution_owner": "user_in_vscode",
+  "algorithm": "C51",
+  "algorithm_identity": "Canonical Categorical DQN with target-network-only greedy selection and evaluation",
+  "reward_mode": "Base Reward only",
+  "program": {
+    "path": "03_Code/comparison_baselines_c51/run_c51_barn.py",
+    "sha256": "62D8FB2B214D12E96F73C587835DEC673E4EDAB8B511D86EC262F12490540938"
+  },
+  "authority": {
+    "v7_program": {
+      "path": "03_Code/final_two_factor_experiment_v7/final_two_factor_experiment_v7.py",
+      "sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D"
+    },
+    "v7_config": {
+      "path": "03_Code/final_two_factor_experiment_v7/experiment_config.json",
+      "sha256": "CF229DE128FF16E29B73308A7E9B2756DE51294671573F067306274EDA8D4166"
+    },
+    "v7_protocol": {
+      "path": "03_Code/final_two_factor_experiment_v7/experiment_protocol.json",
+      "sha256": "2C8BAFE1A71695627B4F723583153067C0E1C7D08F905538E5BF8793A96B4C9B"
+    },
+    "v7_map_split": {
+      "path": "03_Code/final_two_factor_experiment_v7/map_split.json",
+      "sha256": "637792B5F70F086AD534E3CAE70C03F2640EE402C8F8D09B16979E1910C4EBB1"
+    },
+    "v7_task_split": {
+      "path": "03_Code/final_two_factor_experiment_v7/task_split.json",
+      "sha256": "268A76CF6D4BD2AC6A2BA6CFB6B281527326F06D0B0BA148BAD453D90414F693"
+    },
+    "ddqn_config": {
+      "path": "03_Code/comparison_baselines_v1/configs/ddqn_v1.json",
+      "sha256": "3D0556A6F70A38731162CFB97C89149926F6268484F909AB3A249412FD3408B8"
+    },
+    "d3qn_config": {
+      "path": "03_Code/comparison_baselines_v1/configs/d3qn_v1.json",
+      "sha256": "CBC3C5E47805C79BB539E1BBD10D048C381454291CD7A78E21CCA93B71C6BAC2"
+    }
+  },
+  "references": {
+    "paper": "https://proceedings.mlr.press/v70/bellemare17a.html",
+    "cleanrl_cross_check": "https://github.com/vwxyzjn/cleanrl/blob/master/cleanrl/c51.py",
+    "cleanrl_hyperparameters_adopted": false
+  },
+  "inputs": {
+    "training_tasks": {
+      "path": "03_Code/training_tasks_v2.json",
+      "sha256": "D29146F90A9B73749B1FADAA0E563618E547A817422EB7A5D9D2A6F18DAFDBF5",
+      "count": 1000,
+      "map_ids": [0, 19]
+    },
+    "validation_tasks": {
+      "path": "03_Code/validation_tasks_v2.json",
+      "sha256": "AAC69C346AEEFB3FDD27E8576493A60D30CFB0989CA23634750D7118D417194B",
+      "count": 100,
+      "map_ids": [20, 29]
+    },
+    "test_tasks": {
+      "path": "03_Code/test_tasks_v9_unseen_final.json",
+      "sha256": "CC3C33B00772F8D1B6314FFADC94F8B7D5B86230C1BF445C5C6BCF15570E8397",
+      "count": 1000,
+      "map_ids": [130, 229]
+    }
+  },
+  "random_streams": {
+    "training_task_seed_offset": 104729,
+    "exploration_seed_offset": 155921,
+    "replay_seed_offset": 196613
+  },
+  "environment": {
+    "map_size": 30,
+    "spatial_shape": [5, 30, 30],
+    "history_size": 10,
+    "action_count": 4,
+    "move_deltas": [[-1, 0], [1, 0], [0, -1], [0, 1]],
+    "max_steps": 180,
+    "action_mask": "bounds_and_cspace_free_cell_all_action_paths",
+    "timeout_is_terminal": true
+  },
+  "state": {
+    "visit_count_clip": 10,
+    "recent_trace_decay": 0.85,
+    "no_progress_counter_clip": 20,
+    "minimum_progress_epsilon": 0.000001
+  },
+  "reward": {
+    "base": {"goal": 1.0, "collision": -0.2, "timeout": -0.2, "step": -0.002},
+    "terminal_reward_adds_step_penalty": true,
+    "reward_normalization": false,
+    "return_normalization": false,
+    "dynamic_reward": false,
+    "astar": false,
+    "intrinsic_reward": false
+  },
+  "network": {
+    "shared_encoder": {
+      "convolutions": [
+        {"in_channels": 5, "out_channels": 32, "kernel_size": 3, "stride": 1, "padding": 1},
+        {"in_channels": 32, "out_channels": 64, "kernel_size": 3, "stride": 2, "padding": 1},
+        {"in_channels": 64, "out_channels": 64, "kernel_size": 3, "stride": 2, "padding": 1}
+      ],
+      "adaptive_pool": [4, 4],
+      "spatial_projection": [1024, 256],
+      "history_mlp": [10, 64, 64],
+      "fusion": [320, 256],
+      "activation": "ReLU",
+      "fusion_normalization": "LayerNorm",
+      "weight_initialization": "pytorch_default"
+    },
+    "head": [256, 128, 204],
+    "head_output_shape": [4, 51],
+    "dueling": false,
+    "planning_head": false,
+    "recurrent": false,
+    "noisy_network": false
+  },
+  "c51": {
+    "support": {"n_atoms": 51, "v_min": -0.25, "v_max": 1.0, "delta_z": 0.025},
+    "target_action_selection": "target_network_masked_expected_q_argmax",
+    "target_distribution_evaluation": "same_target_network_selected_action_distribution",
+    "double_dqn_decoupling": false,
+    "gamma": 0.99,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "adam_eps": 0.00000001,
+    "replay_type": "uniform_disk_backed_explicit_transition_storage",
+    "replay_capacity": 100000,
+    "learning_starts": 50000,
+    "batch_size": 32,
+    "train_frequency": 4,
+    "gradient_steps_per_update": 1,
+    "target_update_type": "hard",
+    "target_update_interval": 10000,
+    "exploration_schedule": "linear",
+    "exploration_fraction": 0.1,
+    "exploration_initial_epsilon": 1.0,
+    "exploration_final_epsilon": 0.05,
+    "loss": "categorical_cross_entropy",
+    "max_gradient_norm": 10.0,
+    "prioritized_replay": false,
+    "n_step_returns": false,
+    "terminal_bootstrap": false
+  },
+  "profiles": {
+    "formal": {
+      "allowed_seeds": [42, 1004, 6010],
+      "interaction_budget": 900000,
+      "validation_interval": 100000,
+      "validation_episodes": 100,
+      "test_episodes": 1000,
+      "diagnostic_interval": 1000
+    }
+  },
+  "checkpoint": {
+    "selection_split": "validation",
+    "ranking": ["success_rate_desc", "spl_desc", "timeout_rate_asc", "average_steps_asc", "interaction_count_asc"],
+    "test_requires_frozen_best_validation_checkpoint": true
+  },
+  "evaluation": {
+    "deterministic_masked_argmax": true,
+    "epsilon": 0.0,
+    "parameter_updates": 0,
+    "optimizer_steps": 0,
+    "replay_writes": 0,
+    "target_updates": 0,
+    "gradient_computation": false,
+    "dynamic_reward": false,
+    "astar_runtime_calls": 0,
+    "record_all_test_trajectories": true
+  },
+  "isolation": {
+    "base_reward_only": true,
+    "dynamic_reward": false,
+    "astar": false,
+    "planning_head": false,
+    "curriculum": false,
+    "imitation": false,
+    "her": false,
+    "demonstrations": false,
+    "privileged_information": false,
+    "test_time_adaptation": false,
+    "automatic_early_stop": false,
+    "automatic_retry": false,
+    "automatic_multi_seed_queue": false
+  },
+  "output_root": "redacted_local_root\\comparison_baselines_c51_outputs"
+}

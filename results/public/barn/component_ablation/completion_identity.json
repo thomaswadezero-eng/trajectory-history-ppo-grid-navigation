@@ -1,0 +1,356 @@
+{
+  "status": {
+    "schema_version": "component_ablation_batch_status.v1",
+    "updated_at": "2026-09-20T06:45:01",
+    "official_seeds": [
+      42,
+      1004,
+      6010,
+      68882,
+      19816,
+      74494,
+      81399,
+      31524
+    ],
+    "methods": [
+      "REWARD_WO_PROGRESS",
+      "REWARD_WO_REVISIT",
+      "REWARD_WO_OSCILLATION",
+      "REWARD_WO_STAGNATION"
+    ],
+    "statuses": {
+      "REWARD_WO_PROGRESS/seed_42": "REUSABLE_LEGACY",
+      "REWARD_WO_PROGRESS/seed_1004": "REUSABLE_LEGACY",
+      "REWARD_WO_PROGRESS/seed_6010": "REUSABLE_LEGACY",
+      "REWARD_WO_PROGRESS/seed_68882": "DONE_REVISION",
+      "REWARD_WO_PROGRESS/seed_19816": "DONE_REVISION",
+      "REWARD_WO_PROGRESS/seed_74494": "DONE_REVISION",
+      "REWARD_WO_PROGRESS/seed_81399": "DONE_REVISION",
+      "REWARD_WO_PROGRESS/seed_31524": "DONE_REVISION",
+      "REWARD_WO_REVISIT/seed_42": "REUSABLE_LEGACY",
+      "REWARD_WO_REVISIT/seed_1004": "REUSABLE_LEGACY",
+      "REWARD_WO_REVISIT/seed_6010": "REUSABLE_LEGACY",
+      "REWARD_WO_REVISIT/seed_68882": "DONE_REVISION",
+      "REWARD_WO_REVISIT/seed_19816": "DONE_REVISION",
+      "REWARD_WO_REVISIT/seed_74494": "DONE_REVISION",
+      "REWARD_WO_REVISIT/seed_81399": "DONE_REVISION",
+      "REWARD_WO_REVISIT/seed_31524": "DONE_REVISION",
+      "REWARD_WO_OSCILLATION/seed_42": "REUSABLE_LEGACY",
+      "REWARD_WO_OSCILLATION/seed_1004": "REUSABLE_LEGACY",
+      "REWARD_WO_OSCILLATION/seed_6010": "REUSABLE_LEGACY",
+      "REWARD_WO_OSCILLATION/seed_68882": "DONE_REVISION",
+      "REWARD_WO_OSCILLATION/seed_19816": "DONE_REVISION",
+      "REWARD_WO_OSCILLATION/seed_74494": "DONE_REVISION",
+      "REWARD_WO_OSCILLATION/seed_81399": "DONE_REVISION",
+      "REWARD_WO_OSCILLATION/seed_31524": "DONE_REVISION",
+      "REWARD_WO_STAGNATION/seed_42": "REUSABLE_LEGACY",
+      "REWARD_WO_STAGNATION/seed_1004": "REUSABLE_LEGACY",
+      "REWARD_WO_STAGNATION/seed_6010": "REUSABLE_LEGACY",
+      "REWARD_WO_STAGNATION/seed_68882": "DONE_REVISION",
+      "REWARD_WO_STAGNATION/seed_19816": "DONE_REVISION",
+      "REWARD_WO_STAGNATION/seed_74494": "DONE_REVISION",
+      "REWARD_WO_STAGNATION/seed_81399": "DONE_REVISION",
+      "REWARD_WO_STAGNATION/seed_31524": "DONE_REVISION"
+    },
+    "legacy_reusable_count": 12,
+    "revision_done_count": 20,
+    "complete_count": 32,
+    "planned_count": 32
+  },
+  "statistical_status": {
+    "schema_version": "component_ablation_statistical_status.v1",
+    "status": "COMPLETE",
+    "required_pairs": 8,
+    "component_records": 32,
+    "required_component_records": 32,
+    "hypothesis_plan": "evidence-path:0186",
+    "hypothesis_plan_sha256": "8B0B0067FE8F448D3B8880EAF9E94E073467CBD790BA9B49605D4D323C6B11A5"
+  },
+  "audit_manifest": {
+    "schema_version": "component_ablation_aggregate_audit.v1",
+    "program_identity": {
+      "program_sha256": "0C0C037CC3DDE881B189E0A34FA47A582FB5D95A74217BA9E83D34AD079C2228",
+      "config_sha256": "6442D41110DE18B0DF571880E9F546DC9B6A195EE819D7C9D012B4DB5EED78B9",
+      "protocol_sha256": "32D9A9975A61139C78B914EACD8F81765CDE96019DF7798BCF76B43F2A0881AF",
+      "input_sha256": {
+        "training_tasks": "D29146F90A9B73749B1FADAA0E563618E547A817422EB7A5D9D2A6F18DAFDBF5",
+        "validation_tasks": "AAC69C346AEEFB3FDD27E8576493A60D30CFB0989CA23634750D7118D417194B",
+        "test_tasks": "CC3C33B00772F8D1B6314FFADC94F8B7D5B86230C1BF445C5C6BCF15570E8397",
+        "map_split": "637792B5F70F086AD534E3CAE70C03F2640EE402C8F8D09B16979E1910C4EBB1",
+        "task_split": "268A76CF6D4BD2AC6A2BA6CFB6B281527326F06D0B0BA148BAD453D90414F693"
+      }
+    },
+    "batch_runner_sha256": "D6E77F3493EF81AB1BC002F789E2E2B1F118F15A7716917A77FDE43EB8406B5C",
+    "aggregate_program_sha256": "FE8E5E865B3F431EBE4F99ED7DDC888519B3FE522DBE95DDB49EFAB6C373F122",
+    "hypothesis_plan_sha256": "8B0B0067FE8F448D3B8880EAF9E94E073467CBD790BA9B49605D4D323C6B11A5",
+    "reference_method": "PPO_Reward",
+    "reference_records": [
+      {
+        "seed": 42,
+        "source_path": "evidence-path:0050",
+        "source_sha256": "64F5EBBE7BA31419AB796497097A4692A020FF1B3C02B5FD531EEBA19B527200"
+      },
+      {
+        "seed": 1004,
+        "source_path": "evidence-path:0052",
+        "source_sha256": "BCB0F49E572AC30EE42DDF5298302D78C14980F122F6764A3865DD28CE8E72D3"
+      },
+      {
+        "seed": 6010,
+        "source_path": "evidence-path:0054",
+        "source_sha256": "348C8ECD2ED86BA61F301566065BE1EB7A1BFD4CE5B9B8D2A5E1A85ED97A2541"
+      },
+      {
+        "seed": 68882,
+        "source_path": "evidence-path:0056",
+        "source_sha256": "6B75C25C4256FE3EF58C65DCDA9A3C1819EE82E14C016D883AC5E99201F242A3"
+      },
+      {
+        "seed": 19816,
+        "source_path": "evidence-path:0058",
+        "source_sha256": "BA0325E30C01046B1B8D38EBCE137538CEFF0D8DC59D10792B9BDEF160A037EA"
+      },
+      {
+        "seed": 74494,
+        "source_path": "evidence-path:0060",
+        "source_sha256": "5B1FAD7322DD4B54EE0D098E68EC0EC693317F336830B8367785134623926974"
+      },
+      {
+        "seed": 81399,
+        "source_path": "evidence-path:0062",
+        "source_sha256": "01F4C36AF3FB8DA43AC63608C8B5A56F62E3D011DCD58F589E605AF164539C3B"
+      },
+      {
+        "seed": 31524,
+        "source_path": "evidence-path:0064",
+        "source_sha256": "AEDB54001AB2A2481B09B37FDFC70D75FD395E0A3E5699E3FDA7B1BC1D0C8E92"
+      }
+    ],
+    "component_records": [
+      {
+        "method": "REWARD_WO_PROGRESS",
+        "seed": 42,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0154",
+        "source_sha256": "02293485EAE0984392094F6F6541350BF6568AA1BA2C6D661204039CCF9CFC70"
+      },
+      {
+        "method": "REWARD_WO_PROGRESS",
+        "seed": 1004,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0155",
+        "source_sha256": "834A2D0E506964A23ACCC0126454D2FAB44BD0D01581D464CC9FD5E1333EF778"
+      },
+      {
+        "method": "REWARD_WO_PROGRESS",
+        "seed": 6010,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0156",
+        "source_sha256": "258A280DE9CC52062209CF3C8FFE374909A77DCEF3137D67D6C7F6B563D70BB6"
+      },
+      {
+        "method": "REWARD_WO_PROGRESS",
+        "seed": 68882,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0157",
+        "source_sha256": "12366271A9E4847F699043AD07C9C9188C42A5B7CE938659B472DA650F784A59"
+      },
+      {
+        "method": "REWARD_WO_PROGRESS",
+        "seed": 19816,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0158",
+        "source_sha256": "FCB16BB755E90E7BB2D6CAEFE22A1E9BD924D4E070FD9B4F24160A12DCAE96FD"
+      },
+      {
+        "method": "REWARD_WO_PROGRESS",
+        "seed": 74494,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0159",
+        "source_sha256": "56D6797BB8C73FFB3DC0FEB27D59726D1E67AC0440533A90165F65D30FAC20FB"
+      },
+      {
+        "method": "REWARD_WO_PROGRESS",
+        "seed": 81399,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0160",
+        "source_sha256": "0186E2FA552F4BA9CAD36E53003D763CF83BA1EEF57D6AA93135E0C10C24ED4B"
+      },
+      {
+        "method": "REWARD_WO_PROGRESS",
+        "seed": 31524,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0161",
+        "source_sha256": "9728A2AD9C9831B7A910ED5336D2DCA1658135467E19F1D543A048DBCA2CB4DE"
+      },
+      {
+        "method": "REWARD_WO_REVISIT",
+        "seed": 42,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0162",
+        "source_sha256": "01BCD2AE796BCA0CEB15663FA0DC66E0349BE9805DADF049330452CDFB07B98C"
+      },
+      {
+        "method": "REWARD_WO_REVISIT",
+        "seed": 1004,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0163",
+        "source_sha256": "7CE6385D1737B2DF1ED8504C02956ACC75CD7D67BFD923EB0061C78C1828CCFB"
+      },
+      {
+        "method": "REWARD_WO_REVISIT",
+        "seed": 6010,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0164",
+        "source_sha256": "91513D4799D8CA7EBC821A315AEEF03357E0B444519961426BFDF31FDB7F3CFA"
+      },
+      {
+        "method": "REWARD_WO_REVISIT",
+        "seed": 68882,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0165",
+        "source_sha256": "6A8475FFF1E462AC703A3D32C84C103FB34B4FBA6CB9D2A45FD7A348179215FE"
+      },
+      {
+        "method": "REWARD_WO_REVISIT",
+        "seed": 19816,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0166",
+        "source_sha256": "BE95EF4AEC1DB7A45FA4BE0B00CB88757F987031CCDB4704A93C774ADF7DD125"
+      },
+      {
+        "method": "REWARD_WO_REVISIT",
+        "seed": 74494,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0167",
+        "source_sha256": "3169D233F3555EEA9351FA18353AFC3E0D494F73F2FC5F3D984205F07DF5B7B0"
+      },
+      {
+        "method": "REWARD_WO_REVISIT",
+        "seed": 81399,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0168",
+        "source_sha256": "2A68038B5F4DE6AA72931114B2510437B6408021D080274C9C12DD0092E84F09"
+      },
+      {
+        "method": "REWARD_WO_REVISIT",
+        "seed": 31524,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0169",
+        "source_sha256": "74A3E0A0E053F85D6A9B8680A278C410B3DD2DAC585A92FD575FF4CE6467C4B2"
+      },
+      {
+        "method": "REWARD_WO_OSCILLATION",
+        "seed": 42,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0170",
+        "source_sha256": "828A9BE65EB44E765062531994ED3F15F30868976608654230F90BF6A77A8609"
+      },
+      {
+        "method": "REWARD_WO_OSCILLATION",
+        "seed": 1004,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0171",
+        "source_sha256": "162ABFA219226F826799162C7AEADE4CA43814B567AFCCBDA4EFDE590C2A836B"
+      },
+      {
+        "method": "REWARD_WO_OSCILLATION",
+        "seed": 6010,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0172",
+        "source_sha256": "2DAAB9305346F0104CEB8E9967D0C8F7A1F374586A1B0E3BF589DBAA7BFAE806"
+      },
+      {
+        "method": "REWARD_WO_OSCILLATION",
+        "seed": 68882,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0173",
+        "source_sha256": "907F06F5FE81005AD6A600F8471330EE7EA5B5DCF1EBCC7CD0EECFF6E8C0A9CE"
+      },
+      {
+        "method": "REWARD_WO_OSCILLATION",
+        "seed": 19816,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0174",
+        "source_sha256": "D08AA421BC71C323CACA0DDBAD6DD4BAB9630C8B854E4FF64FAFA97FA356CFCB"
+      },
+      {
+        "method": "REWARD_WO_OSCILLATION",
+        "seed": 74494,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0175",
+        "source_sha256": "7B5FEE9DAC37F161570853C25C6947B85DAE7A6D47BAE162BC2ABE963B62E47C"
+      },
+      {
+        "method": "REWARD_WO_OSCILLATION",
+        "seed": 81399,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0176",
+        "source_sha256": "0C95EF133A5939BCB2EA4D4D6CD7DDC34FE9185CBC18A41065CBEB1BABF4F494"
+      },
+      {
+        "method": "REWARD_WO_OSCILLATION",
+        "seed": 31524,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0177",
+        "source_sha256": "3558145A2EDF8B9E9F8183BB5EB805B43AE002F1C968E88C90BF60973A5BE128"
+      },
+      {
+        "method": "REWARD_WO_STAGNATION",
+        "seed": 42,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0178",
+        "source_sha256": "6F50A94A383B95C3894AABF16B38DB5213F3C0437AB675FE8829B723235278E7"
+      },
+      {
+        "method": "REWARD_WO_STAGNATION",
+        "seed": 1004,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0179",
+        "source_sha256": "DA1DB5E7B206E851512248922CA7995CDB5968B85695BC6FFDB628A483175F6A"
+      },
+      {
+        "method": "REWARD_WO_STAGNATION",
+        "seed": 6010,
+        "status": "REUSABLE_LEGACY",
+        "source_path": "evidence-path:0180",
+        "source_sha256": "7BB87BD178F601A3873772D277109F32AB1ACEBE01A4F263B64C76E37882E31D"
+      },
+      {
+        "method": "REWARD_WO_STAGNATION",
+        "seed": 68882,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0181",
+        "source_sha256": "B550EE18A1E33517EA82E648CAC35B62378D66F8D055639293B12A4EC81B70C2"
+      },
+      {
+        "method": "REWARD_WO_STAGNATION",
+        "seed": 19816,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0182",
+        "source_sha256": "1791380B775BAA5ECEA943C1B05FE2A7AD7D8B900A32036DDCF1E284F2F6B2FC"
+      },
+      {
+        "method": "REWARD_WO_STAGNATION",
+        "seed": 74494,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0183",
+        "source_sha256": "68F3DFE6EFA5BE957D01C7F04E40E618CB1702960F9D9EC0C185DF6C97A3F751"
+      },
+      {
+        "method": "REWARD_WO_STAGNATION",
+        "seed": 81399,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0184",
+        "source_sha256": "2838881DFD068269D6F0A8A7478681DC54B1A5FCFEF1190D9AF6E3CCDF12034B"
+      },
+      {
+        "method": "REWARD_WO_STAGNATION",
+        "seed": 31524,
+        "status": "DONE_REVISION",
+        "source_path": "evidence-path:0185",
+        "source_sha256": "65526B8E12DCB903934F3A6D5FD55B964A60831F0C4DC32BB435F5CD422D87F1"
+      }
+    ]
+  }
+}

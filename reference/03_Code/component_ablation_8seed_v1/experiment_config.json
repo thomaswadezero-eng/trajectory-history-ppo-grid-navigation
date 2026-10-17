@@ -1,0 +1,26 @@
+{
+  "schema_version": "component_ablation_8seed.v1",
+  "status": "FROZEN_AND_AUTHORIZED",
+  "formal_execution_allowed": true,
+  "config_sha256_rule": "SHA-256 of exact UTF-8 bytes with only config_sha256 replaced by 64 ASCII zero characters",
+  "config_sha256": "6442D41110DE18B0DF571880E9F546DC9B6A195EE819D7C9D012B4DB5EED78B9",
+  "authorized_program": "03_Code/component_ablation_8seed_v1/component_ablation_8seed_v1.py",
+  "authorized_program_sha256": "0C0C037CC3DDE881B189E0A34FA47A582FB5D95A74217BA9E83D34AD079C2228",
+  "output_root": "redacted_local_root\\revision_component_ablation_8seed_v1",
+  "official_seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "configurations": {
+    "REWARD_WO_PROGRESS": {"reward_components": {"progress": false, "revisit": true, "oscillation": true, "stagnation": true}, "astar_supervision": false, "distillation_loss": false, "planning_loss": false},
+    "REWARD_WO_REVISIT": {"reward_components": {"progress": true, "revisit": false, "oscillation": true, "stagnation": true}, "astar_supervision": false, "distillation_loss": false, "planning_loss": false},
+    "REWARD_WO_OSCILLATION": {"reward_components": {"progress": true, "revisit": true, "oscillation": false, "stagnation": true}, "astar_supervision": false, "distillation_loss": false, "planning_loss": false},
+    "REWARD_WO_STAGNATION": {"reward_components": {"progress": true, "revisit": true, "oscillation": true, "stagnation": false}, "astar_supervision": false, "distillation_loss": false, "planning_loss": false}
+  },
+  "revision_identity": {
+    "frozen_v7_program_sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+    "frozen_internal_parent_program_sha256": "A1FA5959884B782D356B28C359102DBC57D4FA8B32A3D714A0CEBC6C9BA4ADE4",
+    "frozen_internal_parent_config_file_sha256": "D68ABAB4D57C2319D43116C2F5E63A31B223E3E4B49D09355E116F400936A898",
+    "frozen_internal_parent_protocol_file_sha256": "2843E7E5D42B73B256F017F6471EE8C44EF5BDD5C390F25CBA0854DFF00C9446",
+    "algorithm_changes": [],
+    "authorized_changes": ["official_seed_set_extension", "independent_output_root", "revision_identity", "batch_runtime_orchestration_only"],
+    "runtime_preflight_status": "RUNTIME_PREFLIGHT_PENDING"
+  }
+}

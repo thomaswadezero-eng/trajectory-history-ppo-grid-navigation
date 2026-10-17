@@ -1,0 +1,123 @@
+{
+  "schema_version": "comparison_baselines.protocol.v1",
+  "status": "FROZEN_BEFORE_FORMAL_RUNS",
+  "authority_statement": "Final Two-Factor Experiment V7 is the sole current FULL and comparison-protocol authority. ppo_ablation_large_eval.py is historical and is not used.",
+  "v7_authority": {
+    "program": "03_Code/final_two_factor_experiment_v7/final_two_factor_experiment_v7.py",
+    "files": {
+      "program": {
+        "path": "03_Code/final_two_factor_experiment_v7/final_two_factor_experiment_v7.py",
+        "sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D"
+      },
+      "config": {
+        "path": "03_Code/final_two_factor_experiment_v7/experiment_config.json",
+        "sha256": "CF229DE128FF16E29B73308A7E9B2756DE51294671573F067306274EDA8D4166"
+      },
+      "protocol": {
+        "path": "03_Code/final_two_factor_experiment_v7/experiment_protocol.json",
+        "sha256": "2C8BAFE1A71695627B4F723583153067C0E1C7D08F905538E5BF8793A96B4C9B"
+      },
+      "map_split": {
+        "path": "03_Code/final_two_factor_experiment_v7/map_split.json",
+        "sha256": "637792B5F70F086AD534E3CAE70C03F2640EE402C8F8D09B16979E1910C4EBB1"
+      },
+      "task_split": {
+        "path": "03_Code/final_two_factor_experiment_v7/task_split.json",
+        "sha256": "268A76CF6D4BD2AC6A2BA6CFB6B281527326F06D0B0BA148BAD453D90414F693"
+      }
+    }
+  },
+  "method_configs": {
+    "DDQN": {"path": "03_Code/comparison_baselines_v1/configs/ddqn_v1.json", "sha256": "3D0556A6F70A38731162CFB97C89149926F6268484F909AB3A249412FD3408B8"},
+    "D3QN": {"path": "03_Code/comparison_baselines_v1/configs/d3qn_v1.json", "sha256": "CBC3C5E47805C79BB539E1BBD10D048C381454291CD7A78E21CCA93B71C6BAC2"},
+    "A2C": {"path": "03_Code/comparison_baselines_v1/configs/a2c_v1.json", "sha256": "33A9F91EF1C7257A5BEF884C9122466AA18770555A7F8A9D3D21E87F6228EF48"}
+  },
+  "official_seeds": [42, 1004, 6010],
+  "output_root": "redacted_local_root\\comparison_baselines_v1_outputs",
+  "protected_output_roots": [
+    "redacted_local_root\\final_two_factor_experiment_v7",
+    "redacted_local_root\\03_Code\\external_baselines\\outputs"
+  ],
+  "random_streams": {
+    "training_task_seed_offset": 104729,
+    "exploration_seed_offset": 155921,
+    "replay_seed_offset": 196613
+  },
+  "tasks": {
+    "train": {"path": "03_Code/training_tasks_v2.json", "sha256": "D29146F90A9B73749B1FADAA0E563618E547A817422EB7A5D9D2A6F18DAFDBF5"},
+    "validation": {"path": "03_Code/validation_tasks_v2.json", "sha256": "AAC69C346AEEFB3FDD27E8576493A60D30CFB0989CA23634750D7118D417194B"},
+    "test": {"path": "03_Code/test_tasks_v9_unseen_final.json", "sha256": "CC3C33B00772F8D1B6314FFADC94F8B7D5B86230C1BF445C5C6BCF15570E8397"}
+  },
+  "splits": {
+    "train": {"task_count": 1000, "map_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]},
+    "validation": {"task_count": 100, "map_ids": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29]},
+    "test": {"task_count": 1000, "map_ids": [130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229]}
+  },
+  "environment": {
+    "map_size": 30,
+    "action_count": 4,
+    "action_order": ["up", "down", "left", "right"],
+    "move_deltas": [[-1, 0], [1, 0], [0, -1], [0, 1]],
+    "max_steps": 180,
+    "action_mask": "bounds_and_cspace_free_cell",
+    "action_mask_shared_with_full": true
+  },
+  "state": {
+    "spatial_channels": ["occupancy", "position", "goal", "cumulative_visit", "recent_trace"],
+    "spatial_shape": [5, 30, 30],
+    "history_order": ["normalized_timestep", "normalized_no_progress", "previous_action_0", "previous_action_1", "previous_action_2", "previous_action_3", "neighbor_visit_0", "neighbor_visit_1", "neighbor_visit_2", "neighbor_visit_3"],
+    "history_size": 10,
+    "visit_count_clip": 10,
+    "recent_trace_decay": 0.85,
+    "no_progress_counter_clip": 20,
+    "minimum_progress_epsilon": 0.000001
+  },
+  "network": {
+    "shared_encoder": {
+      "convolutions": [
+        {"in_channels": 5, "out_channels": 32, "kernel_size": 3, "stride": 1, "padding": 1},
+        {"in_channels": 32, "out_channels": 64, "kernel_size": 3, "stride": 2, "padding": 1},
+        {"in_channels": 64, "out_channels": 64, "kernel_size": 3, "stride": 2, "padding": 1}
+      ],
+      "adaptive_pool": [4, 4],
+      "spatial_projection": [1024, 256],
+      "history_mlp": [10, 64, 64],
+      "fusion": [320, 256],
+      "activation": "ReLU",
+      "fusion_normalization": "LayerNorm",
+      "weight_initialization": "pytorch_default"
+    },
+    "planning_head_present_in_baselines": false
+  },
+  "base_reward": {"goal": 1.0, "collision": -0.2, "timeout": -0.2, "step": -0.002},
+  "innovations": {
+    "full_definition": "PPO + Dynamic Reward + training-only A* Planning Prior",
+    "baseline_dynamic_reward": false,
+    "baseline_astar_planning_prior": false,
+    "baseline_curriculum": false,
+    "baseline_imitation": false
+  },
+  "training": {
+    "interaction_budget": 900000,
+    "interaction_definition": "environment_transitions",
+    "task_sampling": "uniform_over_all_frozen_training_tasks",
+    "validation_interval_interactions": 100000,
+    "validation_points": [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000, 900000],
+    "checkpoint_selection_split": "validation",
+    "checkpoint_ranking": ["success_rate_desc", "spl_desc", "timeout_rate_asc", "average_steps_asc", "interaction_count_asc"],
+    "external_checkpoint_loading": false,
+    "hyperparameter_search_using_test": false
+  },
+  "evaluation": {
+    "validation_policy": "deterministic_masked_policy",
+    "test_policy": "deterministic_masked_policy",
+    "test_checkpoint": "validation_selected_only",
+    "test_executions_per_formal_run": 1,
+    "test_parameter_updates": 0,
+    "metrics": ["success_rate", "SPL", "path_efficiency", "average_steps", "average_path_length", "timeout_rate", "collision_rate", "inference_seconds"],
+    "path_length": "count_of_position_changes",
+    "spl": "success*optimal/max(optimal,path_length)",
+    "path_efficiency": "optimal/max(optimal,path_length), averaged over successful episodes only",
+    "shortest_path_usage": "frozen task metric field only; never policy input, reward, target, or checkpoint feature beyond computed validation metrics"
+  }
+}

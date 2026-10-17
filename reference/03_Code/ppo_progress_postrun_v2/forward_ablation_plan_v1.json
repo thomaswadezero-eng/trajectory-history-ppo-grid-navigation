@@ -1,0 +1,60 @@
+{
+  "schema_version": "ppo_progress_forward_ablation_plan.v1",
+  "status": "FROZEN_BEFORE_PPO_PROGRESS_FORMAL_RESULTS",
+  "frozen_at": "2026-09-25",
+  "experimental_unit": "independently trained policy identified by paired seed",
+  "seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "n_pairs": 8,
+  "episode_level_pseudoreplication_forbidden": true,
+  "test": {
+    "name": "paired two-sided Wilcoxon signed-rank",
+    "alternative": "two-sided",
+    "zero_method": "wilcox",
+    "method": "exact_with_auto_zero_fallback",
+    "all_zero_rule": "W=0 and p=1",
+    "note": "Eight-pair comparisons without zeros use exact calculation. Comparisons containing zeros use the established main-analysis auto handling because SciPy exact calculation is invalid with zeros."
+  },
+  "multiple_comparison_correction": {
+    "method": "Holm step-down",
+    "scope": "separately within each comparison-specific three-metric family",
+    "global_six_test_family_forbidden": true
+  },
+  "families": [
+    {
+      "family_id": "F1_PPO_TO_PPO_PROGRESS",
+      "comparison": "PPO vs PPO+Progress",
+      "earlier_method": "PPO",
+      "later_method": "PPO_PROGRESS",
+      "metrics": ["success_rate", "spl", "timeout_rate"],
+      "scientific_scope": "incremental effect of adding the Progress term to base PPO under the matched protocol"
+    },
+    {
+      "family_id": "F2_PPO_PROGRESS_TO_PPO_REWARD",
+      "comparison": "PPO+Progress vs PPO+Reward",
+      "earlier_method": "PPO_PROGRESS",
+      "later_method": "PPO_Reward",
+      "metrics": ["success_rate", "spl", "timeout_rate"],
+      "scientific_scope": "joint incremental effect of Revisit, Oscillation, and Stagnation on top of Progress"
+    }
+  ],
+  "benefit_directions": {
+    "success_rate": "later_minus_earlier",
+    "spl": "later_minus_earlier",
+    "timeout_rate": "earlier_minus_later"
+  },
+  "effect_size": "paired rank-biserial correlation on benefit-oriented differences",
+  "bootstrap": {
+    "enabled": true,
+    "paired": true,
+    "statistic": "mean benefit-oriented paired difference",
+    "confidence_level": 0.95,
+    "replicates": 100000,
+    "analysis_seed": 20260828
+  },
+  "formal_dependencies": {
+    "ppo_progress_audit_status": "PASS",
+    "ppo_progress_expected_method": "PPO_PROGRESS",
+    "training_interactions_per_seed": 900000,
+    "test_episodes_per_seed": 1000
+  }
+}

@@ -1,0 +1,26 @@
+# Private material, environments and generated artifacts
+.release_private/
+.git/
+__pycache__/
+*.py[cod]
+.venv*/
+venv/
+.env
+.env.*
+*.pem
+*.key
+checkpoints/
+models/
+weights/
+logs/
+outputs/
+runs/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.log
+*.zip
+# Download datasets outside this repository.
+data/raw/
+data/processed/

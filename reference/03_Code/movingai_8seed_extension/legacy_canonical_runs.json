@@ -1,0 +1,68 @@
+{
+  "schema_version": "movingai64_legacy_canonical_registry.v1",
+  "status": "READ_ONLY_PINNED_9_OF_9",
+  "methods": ["PPO", "PPO_Reward", "FULL"],
+  "seeds": [42, 1004, 6010],
+  "legacy_config_sha256": "74840FB55C315109351ED0D7E790C8698B0A920F0643529D66031AC76ACABDE1",
+  "legacy_protocol_sha256": "E2BAE439F635A9247F8167AC3B05030D195DC2F9545D8F497E577668B1954D82",
+  "formal_audit_json": {
+    "path": "redacted_local_root\\07_Output\\MovingAI64_Final_Audit_20260925_v2\\movingai64_final_audit.json",
+    "sha256": "EB9288BC27BD0DA3044422E4D60C98EDCE145D8719EFC3E83A59DF732750371C"
+  },
+  "runs": [
+    {
+      "method": "PPO",
+      "seed": 42,
+      "done_path": "redacted_local_root\\revision_movingai64_robustness_v1\\PPO\\seed_42\\run_20260922_150639_731873\\DONE.json",
+      "done_sha256": "60CF369089463FE585C1D14252DED81921AA99CC46F4FCDDE0FDA35B420A913E"
+    },
+    {
+      "method": "PPO",
+      "seed": 1004,
+      "done_path": "redacted_local_root\\revision_movingai64_robustness_v1\\PPO\\seed_1004\\run_20260922_191613_651559\\DONE.json",
+      "done_sha256": "F5B8B6400FD57BC59C1E382CE9EC311688F71DA141E989F13C1F5D1806F70300"
+    },
+    {
+      "method": "PPO",
+      "seed": 6010,
+      "done_path": "redacted_local_root\\revision_movingai64_robustness_v1\\PPO\\seed_6010\\run_20260922_224236_260865\\DONE.json",
+      "done_sha256": "D3E14FBA73F4A4B61BCC36D0874688CC07893348A300CDE2DF0B670323CFA8DF"
+    },
+    {
+      "method": "PPO_Reward",
+      "seed": 42,
+      "done_path": "redacted_local_root\\revision_movingai64_robustness_v1\\PPO_Reward\\seed_42\\run_20260923_182845_981023\\DONE.json",
+      "done_sha256": "2AD859973F9E1F7F7AB192D66E19CA154FB18CC73FD98D1E0973F20CD96202E0"
+    },
+    {
+      "method": "PPO_Reward",
+      "seed": 1004,
+      "done_path": "redacted_local_root\\revision_movingai64_robustness_v1\\PPO_Reward\\seed_1004\\run_20260923_214312_764219\\DONE.json",
+      "done_sha256": "68F6A92EB377B8BB8BCEA963BD3453A57B6992EA4CEBCF9957838B09536639E5"
+    },
+    {
+      "method": "PPO_Reward",
+      "seed": 6010,
+      "done_path": "redacted_local_root\\revision_movingai64_robustness_v1\\PPO_Reward\\seed_6010\\run_20260924_010322_445250\\DONE.json",
+      "done_sha256": "8A3B8F9F9877A6276D9614C0B7ACF7C1FAD2DF9FF401B9AB97EA8A6323C1CB1A"
+    },
+    {
+      "method": "FULL",
+      "seed": 42,
+      "done_path": "redacted_local_root\\revision_movingai64_robustness_v1\\FULL\\seed_42\\run_20260924_041202_766895\\DONE.json",
+      "done_sha256": "2A9EFE173C9EF21D58B67148A564D80F0C772B65AC79CB2C536F1E0E653EC546"
+    },
+    {
+      "method": "FULL",
+      "seed": 1004,
+      "done_path": "redacted_local_root\\revision_movingai64_robustness_v1\\FULL\\seed_1004\\run_20260924_104846_695865\\DONE.json",
+      "done_sha256": "B5EA6D8195F50552B6FBEF7DF6BAE0EDA575D9346AFFB03B5E99EA7C60FB5175"
+    },
+    {
+      "method": "FULL",
+      "seed": 6010,
+      "done_path": "redacted_local_root\\revision_movingai64_robustness_v1\\FULL\\seed_6010\\run_20260924_200003_048129\\DONE.json",
+      "done_sha256": "A991F1004D03E8D42CA70727D5789C41BC11555B9B184EB1A48C36E1B76D6BCE"
+    }
+  ]
+}

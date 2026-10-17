@@ -1,0 +1,88 @@
+{
+  "schema_version": "final_two_factor_experiment.v7.protocol",
+  "status": "FROZEN_AND_AUTHORIZED",
+  "formal_execution_allowed": true,
+  "protocol_sha256_rule": "SHA-256 of exact UTF-8 bytes with only protocol_sha256 replaced by 64 ASCII zero characters",
+  "protocol_sha256": "CDEE0BDB835466E8610E5952DFE6683480D25E78A13DD9BBCD822F09897421BA",
+  "authorized_program": "03_Code/final_two_factor_experiment_v7_8seed/final_two_factor_experiment_v7_8seed.py",
+  "authorized_program_sha256": "19290D3A23DCC8E10FD4264EF9D8A3FEC4A691CFFD8A69C6FDEE8DE65C8EF8DD",
+  "configuration": {
+    "path": "03_Code/final_two_factor_experiment_v7_8seed/experiment_config_v7_8seed.json",
+    "self_field_zeroed_sha256": "A1B343EE2D5FA67D09D0D1D4119261DB045BD892A5A231F1E534399C2C86B5B0"
+  },
+  "configurations": {
+    "PPO": {"astar_supervision": false, "dynamic_reward": false},
+    "PPO_Astar": {"astar_supervision": true, "dynamic_reward": false},
+    "PPO_Reward": {"astar_supervision": false, "dynamic_reward": true},
+    "FULL": {"astar_supervision": true, "dynamic_reward": true}
+  },
+  "official_seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "interaction_budget": 900000,
+  "astar_planning_prior": {
+    "training_only": true,
+    "target": "softmax_of_negative_normalized_legal_successor_costs",
+    "actor_term": "masked_soft_target_distillation",
+    "planning_head_term": "legal_action_cost_huber_loss",
+    "total_loss": "ppo_loss_plus_weighted_distillation_plus_weighted_planning_loss",
+    "distillation_component_weight": 0.25,
+    "distillation_schedule": "constant_to_0.10_then_cosine_zero_at_0.30",
+    "planning_component_weight": 1.0,
+    "planning_schedule": "constant_to_0.30_then_cosine_zero_at_0.50",
+    "guidance_role": "early_planning_warm_start",
+    "modifies_environment_action": false,
+    "modifies_reward": false,
+    "modifies_gae": false,
+    "validation_runtime_calls": 0,
+    "test_runtime_calls": 0
+  },
+  "authorized_changes_from_v6": [
+    "retain_v6_planning_head_soft_target_and_auxiliary_losses",
+    "restrict_actor_distillation_to_early_warm_start_interval",
+    "keep_planning_guidance_constant_through_0.30_then_decay_to_zero_at_0.50",
+    "add_astar_guidance_schedule_csv",
+    "independent_v7_identity_and_output_root"
+  ],
+  "protected_implementation": [
+    "dynamic_reward",
+    "shared_state_encoder",
+    "actor_head",
+    "critic_head",
+    "ppo_clipped_objective",
+    "gae",
+    "optimizer",
+    "rollout_size",
+    "interaction_budget",
+    "map_and_task_splits",
+    "evaluation_without_astar"
+  ],
+  "inputs": {
+    "training_tasks": {
+      "path": "03_Code/training_tasks_v2.json",
+      "sha256": "D29146F90A9B73749B1FADAA0E563618E547A817422EB7A5D9D2A6F18DAFDBF5"
+    },
+    "validation_tasks": {
+      "path": "03_Code/validation_tasks_v2.json",
+      "sha256": "AAC69C346AEEFB3FDD27E8576493A60D30CFB0989CA23634750D7118D417194B"
+    },
+    "test_tasks": {
+      "path": "03_Code/test_tasks_v9_unseen_final.json",
+      "sha256": "CC3C33B00772F8D1B6314FFADC94F8B7D5B86230C1BF445C5C6BCF15570E8397"
+    },
+    "map_split": {
+      "path": "03_Code/final_two_factor_experiment_v7/map_split.json",
+      "sha256": "637792B5F70F086AD534E3CAE70C03F2640EE402C8F8D09B16979E1910C4EBB1"
+    },
+    "task_split": {
+      "path": "03_Code/final_two_factor_experiment_v7/task_split.json",
+      "sha256": "268A76CF6D4BD2AC6A2BA6CFB6B281527326F06D0B0BA148BAD453D90414F693"
+    }
+  },
+  "isolation_assertions": {
+    "validation_astar_runtime_calls": 0,
+    "test_astar_runtime_calls": 0,
+    "test_parameter_updates": 0,
+    "external_checkpoint_loading": false,
+    "old_experiment_state_loading": false,
+    "output_root": "redacted_local_root\\final_two_factor_experiment_v7"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "movingai64_8seed_extension_protocol.v1",
+  "status": "CONFIRMED_BY_USER",
+  "formal_execution_allowed": true,
+  "protocol_sha256_rule": "SHA-256 of exact UTF-8 bytes with only protocol_sha256 replaced by 64 ASCII zero characters",
+  "protocol_sha256": "8CB98E57717CE7CFB88CA7C4DEAD76F54680E783E4B17A18359FB78D8537226D",
+  "authority": {
+    "legacy_v7_program": "03_Code/final_two_factor_experiment_v7/final_two_factor_experiment_v7.py",
+    "legacy_v7_sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+    "movingai64_wrapper": "03_Code/movingai_64x64_robustness_v1/run_movingai64_wrapper.py",
+    "movingai64_wrapper_sha256": "BF5BEA1B264A68A87EF7F7E7C0156BF9E1F2DF6EB3AD392317CF75F09C297669",
+    "delegation_rule": "The extension launcher calls the frozen MovingAI64 wrapper, which imports and calls the SHA-locked Legacy V7 training classes and run_experiment. No environment, ActorCritic, PPOAgent, reward, A* supervisor, evaluator, checkpoint rule, or training loop is copied or rewritten."
+  },
+  "methods": ["PPO", "PPO_Reward", "FULL"],
+  "method_labels": {"PPO": "PPO", "PPO_Reward": "PPO+Reward", "FULL": "FULL"},
+  "seed_design": {
+    "confirmed_seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+    "legacy_seeds": [42, 1004, 6010],
+    "new_seeds": [68882, 19816, 74494, 81399, 31524],
+    "status": "CONFIRMED_BY_USER",
+    "paired_across_methods": true,
+    "legacy_results_are_read_only": true,
+    "legacy_seeds_must_not_be_retrained": true
+  },
+  "interaction_budget": 900000,
+  "horizon": {
+    "confirmed_value": 400,
+    "status": "CONFIRMED_BY_USER",
+    "post_result_changes_allowed": false
+  },
+  "data": {
+    "source": "The exact frozen DAO, Room, and Maze original-cell 64x64 task artifacts used by the canonical three-seed experiment.",
+    "processed_root": "redacted_local_root\\processed_64x64_v1",
+    "task_artifact_status": "FROZEN_REUSE_ONLY",
+    "crop_resolution": "original_cells_no_resize",
+    "test_composition": {"DAO": 380, "Room": 140, "Maze": 230},
+    "split_isolation_required": true,
+    "task_regeneration_allowed": false
+  },
+  "training_and_evaluation": {
+    "validation_interval_interactions": 100000,
+    "checkpoint_selection_split": "validation",
+    "checkpoint_ranking": ["success_rate_desc", "spl_desc", "timeout_rate_asc", "average_steps_asc", "interaction_count_asc"],
+    "validation_policy": "deterministic_masked_policy",
+    "test_policy": "deterministic_masked_policy",
+    "planning_head_used_for_action_selection": false,
+    "validation_astar_runtime_calls": 0,
+    "test_astar_runtime_calls": 0,
+    "test_parameter_updates": 0,
+    "resume_from_external_checkpoint": false,
+    "load_previous_experiment_state": false
+  },
+  "execution": {
+    "new_output_root": "redacted_local_root\\revision_movingai_8seed_extension",
+    "strict_serial": true,
+    "maximum_concurrent_children": 1,
+    "fixed_method_order": ["PPO", "PPO_Reward", "FULL"],
+    "fixed_new_seed_order": [68882, 19816, 74494, 81399, 31524],
+    "failure_policy": "STOP_IMMEDIATELY",
+    "automatic_retry": false,
+    "automatic_resume": false,
+    "skip_failed_or_incomplete": false,
+    "overwrite": false,
+    "aggregate_gate": "EXACTLY_24_COMPLETE_AND_VALID_COMBINATIONS"
+  },
+  "statistics": {
+    "always_generate": ["per_seed_metrics", "mean_plus_minus_sample_sd", "paired_method_differences", "map_family_descriptive_results"],
+    "path_efficiency_scope": "successful_episodes_only; zero when a seed has no success",
+    "inferential_status": "NOT_AUTHORIZED",
+    "formal_inferential_tests": false,
+    "multiple_testing_procedure": "NOT_FIXED_OR_AUTHORIZED",
+    "result_dependent_test_selection_forbidden": true
+  },
+  "configuration": {
+    "path": "03_Code/movingai_8seed_extension/movingai_8seed_config.json",
+    "self_field_zeroed_sha256": "018D98828E17FE159B4C6D71EB2157C611E223FCF431FD55F480F9D130B3A30A"
+  },
+  "legacy_evidence": {
+    "registry": "03_Code/movingai_8seed_extension/legacy_canonical_runs.json",
+    "formal_audit_json": "07_Output/MovingAI64_Final_Audit_20260925_v2/movingai64_final_audit.json",
+    "formal_audit_status": "PASS_9_OF_9"
+  },
+  "formal_training": {
+    "status": "NOT_STARTED"
+  }
+}

@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "Please cite this software when using its implementation or released results."
+type: software
+title: "Trajectory-History-Conditioned PPO Grid Navigation"
+authors:
+  - family-names: Jin
+    given-names: Zhengsheng
+license: MIT
+repository-code: "https://github.com/thomaswadezero-eng/trajectory-history-ppo-grid-navigation"
+abstract: >-
+  Research implementations and per-seed results for trajectory-history-conditioned
+  dynamic reward and a training-only A* prior in PPO grid navigation.
+  Software author: Zhengsheng Jin. The related manuscript is unpublished and
+  in preparation (2026); no DOI is assigned.
+references:
+  - type: unpublished
+    title: "Trajectory-History-Conditioned Dynamic Reward for PPO-Based Grid Navigation: A Controlled Ablation of a Training-Only A* Prior"
+    authors:
+      - family-names: Jin
+        given-names: Zhengsheng
+      - family-names: Li
+        given-names: Lin
+      - family-names: Zhang
+        given-names: Shihao
+      - family-names: Wang
+        given-names: Zhenhua
+    year: 2026
+    notes: "Manuscript in preparation. Corresponding author: Zhenhua Wang. Unpublished; DOI not assigned."

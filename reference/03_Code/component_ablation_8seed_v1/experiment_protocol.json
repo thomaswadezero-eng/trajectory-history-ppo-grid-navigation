@@ -1,0 +1,31 @@
+{
+  "schema_version": "component_ablation_8seed.v1.protocol",
+  "status": "FROZEN_AND_AUTHORIZED",
+  "formal_execution_allowed": true,
+  "protocol_sha256_rule": "SHA-256 of exact UTF-8 bytes with only protocol_sha256 replaced by 64 ASCII zero characters",
+  "protocol_sha256": "32D9A9975A61139C78B914EACD8F81765CDE96019DF7798BCF76B43F2A0881AF",
+  "authorized_program": "03_Code/component_ablation_8seed_v1/component_ablation_8seed_v1.py",
+  "authorized_program_sha256": "0C0C037CC3DDE881B189E0A34FA47A582FB5D95A74217BA9E83D34AD079C2228",
+  "official_seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "configurations": {
+    "REWARD_WO_PROGRESS": {"reward_components": {"progress": false, "revisit": true, "oscillation": true, "stagnation": true}, "astar_supervision": false, "distillation_loss": false, "planning_loss": false},
+    "REWARD_WO_REVISIT": {"reward_components": {"progress": true, "revisit": false, "oscillation": true, "stagnation": true}, "astar_supervision": false, "distillation_loss": false, "planning_loss": false},
+    "REWARD_WO_OSCILLATION": {"reward_components": {"progress": true, "revisit": true, "oscillation": false, "stagnation": true}, "astar_supervision": false, "distillation_loss": false, "planning_loss": false},
+    "REWARD_WO_STAGNATION": {"reward_components": {"progress": true, "revisit": true, "oscillation": true, "stagnation": false}, "astar_supervision": false, "distillation_loss": false, "planning_loss": false}
+  },
+  "revision_identity": {
+    "frozen_v7_program_sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+    "frozen_internal_parent_program_sha256": "A1FA5959884B782D356B28C359102DBC57D4FA8B32A3D714A0CEBC6C9BA4ADE4",
+    "frozen_internal_parent_config_self_sha256": "0BD21F4412873AE81CA8263ED8E8CDA7A697620A114EF4078521D45C70C5F4CB",
+    "frozen_internal_parent_protocol_self_sha256": "6E8F29D13320355477DB7E6A957DDBFFCE193F1FC1280102BDC9F13BD3404684",
+    "interaction_budget": 900000,
+    "validation_interval": 100000,
+    "final_test_tasks": 1000,
+    "astar_training_queries": 0,
+    "astar_validation_queries": 0,
+    "astar_test_queries": 0,
+    "curriculum": "absent",
+    "escape_independent_reward": "absent; escape is a zero-net decomposition of positive Progress in the frozen parent",
+    "runtime_preflight_status": "RUNTIME_PREFLIGHT_PENDING"
+  }
+}

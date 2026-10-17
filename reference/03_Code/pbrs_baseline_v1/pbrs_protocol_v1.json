@@ -1,0 +1,70 @@
+{
+  "schema_version": "pbrs_baseline.v1.protocol",
+  "status": "FROZEN_AND_AUTHORIZED",
+  "formal_execution_allowed": true,
+  "protocol_sha256_rule": "SHA-256 of exact UTF-8 bytes with only protocol_sha256 replaced by 64 ASCII zero characters",
+  "protocol_sha256": "961CFA0BEC19D8859FEA26FF45A1509B4ECD199636FD04061EC1F860A4196EE8",
+  "authorized_program": "03_Code/pbrs_baseline_v1/pbrs_baseline_v1.py",
+  "authorized_program_sha256": "CF572A044500C4A9AD2B6BAB2C83EDF16731F9D4A15CB526EB50BD8F7499E83F",
+  "source_v7_program": "03_Code/final_two_factor_experiment_v7/final_two_factor_experiment_v7.py",
+  "source_v7_program_sha256": "96093A6B5F024F5D9505ACCEBEAE7592700228BA17587BF0590092A241B7544D",
+  "configuration": {
+    "path": "03_Code/pbrs_baseline_v1/pbrs_config_v1.json",
+    "self_field_zeroed_sha256": "50BB85A38907EBD0358253A54A0D710C0CC7F8CB0B63FB994013C36DA828B192"
+  },
+  "method": "PPO_PBRS",
+  "official_seeds": [42, 1004, 6010, 68882, 19816, 74494, 81399, 31524],
+  "factors": {
+    "pbrs": true,
+    "dynamic_reward": false,
+    "astar_supervision": false
+  },
+  "interaction_budget": 900000,
+  "validation_interval_interactions": 100000,
+  "checkpoint_ranking": ["success_rate_desc", "spl_desc", "timeout_rate_asc", "average_steps_asc", "interaction_count_asc"],
+  "pbrs": {
+    "potential": "Phi(s) = -euclidean(position, goal) / grid_diagonal",
+    "formula": "alpha * (gamma * Phi(s_next) - Phi(s_current))",
+    "alpha": 1.0,
+    "alpha_source": "frozen V7 reward.dynamic.distance_weight",
+    "gamma": 0.99,
+    "gamma_source": "frozen PPO discount factor",
+    "clipping": false,
+    "terminal_phi_next": 0.0,
+    "terminal_types": ["success", "collision", "timeout"]
+  },
+  "isolation_assertions": {
+    "dynamic_progress": 0.0,
+    "dynamic_revisit": 0.0,
+    "dynamic_oscillation": 0.0,
+    "dynamic_stagnation": 0.0,
+    "training_astar_queries": 0,
+    "astar_auxiliary_loss": 0.0,
+    "validation_astar_runtime_calls": 0,
+    "test_astar_runtime_calls": 0,
+    "test_parameter_updates": 0,
+    "output_root": "redacted_local_root\\revision_pbrs_v1"
+  },
+  "inputs": {
+    "training_tasks": {
+      "path": "03_Code/training_tasks_v2.json",
+      "sha256": "D29146F90A9B73749B1FADAA0E563618E547A817422EB7A5D9D2A6F18DAFDBF5"
+    },
+    "validation_tasks": {
+      "path": "03_Code/validation_tasks_v2.json",
+      "sha256": "AAC69C346AEEFB3FDD27E8576493A60D30CFB0989CA23634750D7118D417194B"
+    },
+    "test_tasks": {
+      "path": "03_Code/test_tasks_v9_unseen_final.json",
+      "sha256": "CC3C33B00772F8D1B6314FFADC94F8B7D5B86230C1BF445C5C6BCF15570E8397"
+    },
+    "map_split": {
+      "path": "03_Code/final_two_factor_experiment_v7/map_split.json",
+      "sha256": "637792B5F70F086AD534E3CAE70C03F2640EE402C8F8D09B16979E1910C4EBB1"
+    },
+    "task_split": {
+      "path": "03_Code/final_two_factor_experiment_v7/task_split.json",
+      "sha256": "268A76CF6D4BD2AC6A2BA6CFB6B281527326F06D0B0BA148BAD453D90414F693"
+    }
+  }
+}

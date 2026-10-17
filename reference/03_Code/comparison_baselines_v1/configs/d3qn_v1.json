@@ -1,0 +1,42 @@
+{
+  "schema_version": "comparison_baselines.method_config.v1",
+  "status": "FROZEN_BEFORE_FORMAL_RUNS",
+  "method": "D3QN",
+  "algorithm_definition": "Dueling Double DQN: DDQN target plus mean-centered value and advantage streams",
+  "network_head": "dueling_value_256_128_1_and_advantage_256_128_4",
+  "dueling_aggregation": "Q(s,a)=V(s)+A(s,a)-mean_over_all_four_actions(A(s,a))",
+  "mask_application": "aggregate_fixed_four_action_Q_first_then_mask_action_selection",
+  "algorithm": {
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "adam_eps": 1e-08,
+    "gamma": 0.99,
+    "replay_type": "uniform_disk_backed_memory_efficient_float32",
+    "replay_capacity": 100000,
+    "learning_starts": 50000,
+    "batch_size": 32,
+    "train_frequency": 4,
+    "gradient_steps_per_update": 1,
+    "target_update_type": "hard",
+    "target_update_interval": 10000,
+    "exploration_schedule": "linear",
+    "exploration_fraction": 0.1,
+    "exploration_initial_epsilon": 1.0,
+    "exploration_final_epsilon": 0.05,
+    "loss": "Huber",
+    "huber_delta": 1.0,
+    "max_gradient_norm": 10.0,
+    "prioritized_replay": false,
+    "n_step_returns": false,
+    "noisy_network": false,
+    "distributional_q": false
+  },
+  "innovation_isolation": {
+    "dynamic_reward": false,
+    "astar_planning_prior": false,
+    "planning_head": false,
+    "curriculum": false,
+    "imitation_or_demonstration": false
+  }
+}
+

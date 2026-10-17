@@ -1,0 +1,2 @@
+# Preserve SHA-bound bytes across Windows and Unix checkouts.
+* -text
